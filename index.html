@@ -6,7 +6,7 @@
     <title>Mermaid · Onboarding Prototypes</title>
     <meta
       name="description"
-      content="Entrypoint for the Mermaid onboarding prototypes — the new onboarding flow, the original wireframes, project recap and changelog."
+      content="Entrypoint for the Mermaid onboarding prototypes — launch the prototype and wireframes, read the full project documentation, and see the latest changes."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -96,6 +96,15 @@
         color: var(--muted);
         margin: 0;
       }
+      .section-head a.head-link {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--purple);
+        text-decoration: none;
+      }
+      .section-head a.head-link:hover {
+        text-decoration: underline;
+      }
 
       /* ---------- Launch cards ---------- */
       .grid {
@@ -144,6 +153,9 @@
       .badge.wire {
         background: linear-gradient(135deg, var(--pink), #e873bd);
       }
+      .badge.docs {
+        background: linear-gradient(135deg, #15171f, #3a3550);
+      }
       .card h3 {
         margin: 0;
         font-size: 19px;
@@ -164,6 +176,9 @@
       .card.wire .go {
         color: var(--pink);
       }
+      .card.docs .go {
+        color: #3a3550;
+      }
       .tag {
         align-self: flex-start;
         font-size: 11px;
@@ -179,24 +194,151 @@
         background: rgba(214, 64, 161, 0.1);
         color: var(--pink);
       }
+      .card.docs .tag {
+        background: rgba(31, 27, 46, 0.08);
+        color: #3a3550;
+      }
 
-      /* ---------- Generic panel ---------- */
+      /* ---------- Documentation feature card ---------- */
+      .doc-card {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 0;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 1px 2px rgba(31, 27, 46, 0.04);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .doc-card:hover {
+        transform: translateY(-3px);
+        border-color: #ddd7ec;
+        box-shadow: 0 18px 40px -18px rgba(92, 84, 212, 0.4);
+      }
+      .doc-thumb {
+        position: relative;
+        background: #15171f;
+        color: #fff;
+        padding: 26px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 168px;
+      }
+      .doc-thumb .kicker {
+        font-family: ui-monospace, "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #2fb6b3;
+        font-weight: 600;
+      }
+      .doc-thumb .strap {
+        font-size: 21px;
+        line-height: 1.08;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-top: 12px;
+      }
+      .doc-thumb .strap s {
+        color: #8a90a0;
+        text-decoration-color: #e1542b;
+        text-decoration-thickness: 2px;
+      }
+      .doc-thumb .pill {
+        align-self: flex-start;
+        margin-top: 16px;
+        font-family: ui-monospace, "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        color: #c9cdd8;
+        border: 1px solid #30343f;
+        border-radius: 999px;
+        padding: 4px 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .doc-thumb .pdot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #e1542b;
+      }
+      .doc-body {
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .doc-body .tag {
+        background: rgba(46, 182, 179, 0.14);
+        color: #0a5f5e;
+      }
+      .doc-body h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .doc-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.55;
+      }
+      .doc-body .go {
+        color: #0a5f5e;
+      }
+      @media (max-width: 680px) {
+        .doc-card {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Quick links ---------- */
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #3a3550;
+        text-decoration: none;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 14px;
+        transition:
+          border-color 0.15s ease,
+          color 0.15s ease;
+      }
+      .links a:hover {
+        border-color: #ddd7ec;
+        color: var(--purple);
+      }
+      .links a .ico {
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* ---------- Changelog (3 latest) ---------- */
       .panel {
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: 18px;
         padding: 26px;
       }
-      .panel p {
-        line-height: 1.6;
-        color: #3a3550;
-      }
-      .placeholder {
-        color: var(--muted);
-        font-style: italic;
-      }
-
-      /* ---------- Changelog ---------- */
       .entry {
         display: grid;
         grid-template-columns: 132px 1fr;
@@ -257,159 +399,10 @@
         font-weight: 600;
       }
       .entry .what {
-        margin: 0 0 10px;
+        margin: 0;
         font-size: 14.5px;
         line-height: 1.55;
         color: #3a3550;
-      }
-      .entry .why {
-        margin: 0;
-        font-size: 13.5px;
-        line-height: 1.55;
-        color: var(--muted);
-        border-left: 2px solid var(--line);
-        padding-left: 12px;
-      }
-      .entry .why b {
-        color: #5a5470;
-        font-weight: 600;
-      }
-      .entry .shot {
-        margin-top: 12px;
-        max-width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        display: block;
-      }
-      .entry .shot-missing {
-        margin-top: 12px;
-        font-size: 12px;
-        color: #b3aec4;
-        border: 1px dashed var(--line);
-        border-radius: 10px;
-        padding: 14px;
-        text-align: center;
-      }
-      .local-badge {
-        display: inline-block;
-        margin-left: 8px;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #b3aec4;
-      }
-      .del {
-        margin-top: 10px;
-        background: none;
-        border: none;
-        color: var(--pink);
-        font-size: 12.5px;
-        font-weight: 600;
-        cursor: pointer;
-        padding: 0;
-      }
-
-      /* ---------- Add-entry form ---------- */
-      .form {
-        margin-top: 22px;
-        display: grid;
-        gap: 12px;
-      }
-      .form .row {
-        display: grid;
-        grid-template-columns: 160px 1fr;
-        gap: 12px;
-      }
-      @media (max-width: 680px) {
-        .form .row {
-          grid-template-columns: 1fr;
-        }
-      }
-      label {
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #5a5470;
-        display: block;
-        margin-bottom: 5px;
-      }
-      input[type="text"],
-      textarea,
-      select {
-        width: 100%;
-        font: inherit;
-        font-size: 14px;
-        color: var(--ink);
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        padding: 9px 11px;
-      }
-      input[type="text"]:focus,
-      textarea:focus,
-      select:focus {
-        outline: none;
-        border-color: var(--purple);
-        box-shadow: 0 0 0 3px rgba(92, 84, 212, 0.12);
-      }
-      textarea {
-        resize: vertical;
-        min-height: 60px;
-      }
-      .actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-      button.btn {
-        font: inherit;
-        font-size: 14px;
-        font-weight: 600;
-        border-radius: 10px;
-        padding: 9px 16px;
-        cursor: pointer;
-        border: 1px solid transparent;
-      }
-      button.btn.primary {
-        background: linear-gradient(135deg, var(--purple), #7a72e6);
-        color: #fff;
-      }
-      button.btn.ghost {
-        background: #fff;
-        border-color: var(--line);
-        color: #5a5470;
-      }
-      .hint {
-        font-size: 12.5px;
-        color: var(--muted);
-        margin: 0;
-      }
-      .toast {
-        font-size: 13px;
-        font-weight: 600;
-        color: #1f7a5e;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-      .toast.show {
-        opacity: 1;
-      }
-      details.adder summary {
-        cursor: pointer;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--purple);
-        list-style: none;
-      }
-      details.adder summary::-webkit-details-marker {
-        display: none;
-      }
-      details.adder summary::before {
-        content: "+ ";
-      }
-      details.adder[open] summary::before {
-        content: "– ";
       }
 
       footer {
@@ -431,8 +424,8 @@
 
       <h1>Onboarding prototypes</h1>
       <p class="lede">
-        The project home: launch the prototypes, read the framing, and track
-        what changed and why.
+        The project home: launch the prototypes, read the full documentation,
+        and catch the latest changes.
       </p>
 
       <!-- ===================== LAUNCH ===================== -->
@@ -463,70 +456,43 @@
         </div>
       </section>
 
-      <!-- ===================== PROJECT RECAP ===================== -->
-      <section aria-label="Project recap">
-        <div class="section-head"><h2>Project recap</h2></div>
-        <div class="panel">
-          <p class="placeholder" id="recap-placeholder">
-            Initial problem framing goes here — send me the description and I'll
-            publish it in this space (the problem, who it's for, goals, and what
-            success looks like).
-          </p>
+      <!-- ===================== DOCUMENTATION ===================== -->
+      <section aria-label="Documentation">
+        <div class="section-head"><h2>Documentation</h2></div>
+        <a class="doc-card" href="./documentation/">
+          <div class="doc-thumb" aria-hidden="true">
+            <div class="kicker">Project Documentation</div>
+            <div class="strap">Onboarding,<br /><s>as we knew it,</s><br />is dead.</div>
+            <span class="pill"><span class="pdot"></span> Active · Prototyping</span>
+          </div>
+          <div class="doc-body">
+            <span class="tag">Full write-up</span>
+            <h3>Progressive Intelligent Onboarding</h3>
+            <p>
+              The whole story in one place — the problem and the post-AI
+              mental-model shift, the activation data, the key decisions, the
+              review rounds, the open Invite-vs-Share conflict, and what shipped.
+            </p>
+            <span class="go">Read the documentation →</span>
+          </div>
+        </a>
+
+        <div class="links" style="margin-top: 18px">
+          <a href="./documentation/"><span class="ico">📄</span> Full documentation</a>
+          <a href="https://unified-editor-ten.vercel.app/"><span class="ico">▶</span> Full app (Vercel)</a>
+          <a href="https://github.com/rubenmango/Mermaid-onboarding-intelliagent-"><span class="ico">⌥</span> GitHub repo</a>
+          <a href="https://mermaid.ai/app/projects/4fd27a49-a84c-4c00-99c5-d98790210369/diagrams/3564311c-bf39-4794-8918-57a1eb16488d"><span class="ico">◇</span> Activation tree</a>
         </div>
       </section>
 
-      <!-- ===================== CHANGELOG ===================== -->
-      <section aria-label="Changelog">
+      <!-- ===================== LATEST CHANGES ===================== -->
+      <section aria-label="Latest changes">
         <div class="section-head">
-          <h2>Changelog</h2>
-          <span class="hint">newest first</span>
+          <h2>Latest changes</h2>
+          <a class="head-link" href="./documentation/#evolution">Full history →</a>
         </div>
         <div class="panel">
-          <div id="changelog"><!-- entries injected here --></div>
-
-          <details class="adder" style="margin-top: 24px">
-            <summary>Add an entry (saved in your browser)</summary>
-            <form class="form" id="entry-form">
-              <div class="row">
-                <div>
-                  <label for="f-cat">Category</label>
-                  <select id="f-cat">
-                    <option value="feature">Feature</option>
-                    <option value="polish">Polish</option>
-                    <option value="infra">Infra</option>
-                    <option value="decision">Decision</option>
-                    <option value="note">Note</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="f-title">Title</label>
-                  <input id="f-title" type="text" placeholder="Short summary of the change" />
-                </div>
-              </div>
-              <div>
-                <label for="f-what">What changed</label>
-                <textarea id="f-what" placeholder="What did you change?"></textarea>
-              </div>
-              <div>
-                <label for="f-why">Why / reasoning <span style="font-weight:400;color:#9a95ab">(optional)</span></label>
-                <textarea id="f-why" placeholder="Why was this the right call? Trade-offs, decisions…"></textarea>
-              </div>
-              <div>
-                <label for="f-shot">Screenshot <span style="font-weight:400;color:#9a95ab">(optional, stored locally)</span></label>
-                <input id="f-shot" type="file" accept="image/*" />
-              </div>
-              <div class="actions">
-                <button type="submit" class="btn primary">Add entry</button>
-                <button type="button" class="btn ghost" id="export-btn">Export my entries (Markdown)</button>
-                <span class="toast" id="toast"></span>
-              </div>
-              <p class="hint">
-                Entries you add here live only in this browser. Use “Export” to
-                copy them as Markdown and hand them over to be published into the
-                shared changelog above.
-              </p>
-            </form>
-          </details>
+          <div id="changelog"><!-- 3 latest injected here --></div>
         </div>
       </section>
 
@@ -534,82 +500,44 @@
         Source on the
         <a href="https://github.com/rubenmango/Mermaid-onboarding-intelliagent-"
           >GitHub repo</a
-        >. Curated changelog lives in <code>index.html</code>; your added entries
-        are stored locally.
+        >. The full project story lives in the
+        <a href="./documentation/">documentation</a>.
       </footer>
     </div>
 
     <script>
-      // ---------- Published (curated) changelog ----------
-      // Edit this array to publish entries for everyone. `image` is an optional
-      // path under ./screenshots/ — drop a real PNG there to show it.
-      const PUBLISHED = [
+      // ---------- Latest changes (3 most recent, newest first) ----------
+      // Edit this array to publish entries. The hub only shows these three;
+      // the full history lives in ./documentation/#evolution.
+      const LATEST = [
         {
           date: "2026-06-18",
-          cat: "infra",
-          title: "Live hosting: hub + prototype + wireframes",
-          what: "Deployed to GitHub Pages with this hub as the entrypoint, linking to the prototype (mock AI) and the original wireframes. Added a Cloudflare Pages path for the full real-AI build.",
-          why: "<b>Decision:</b> GitHub Pages is static, so it can't run the /api/ai server route or hold the secret AI key — it ships the built-in client mock. Real AI needs a functions host (Cloudflare), where the key is stored as an encrypted secret.",
-          image: "screenshots/hosting.png",
+          cat: "polish",
+          title: "AI-added highlight outlines the node itself",
+          what: "The “just added by AI” highlight now pulses a brand-gradient stroke on the node's own shape, and the canvas gently pushes in to frame the new node, then eases back out.",
         },
         {
           date: "2026-06-18",
           cat: "feature",
           title: "Prompt pills for all returning modes",
-          what: "The returning starter now shows intelligent prompt pills in Freeform and Code modes too (previously Build only), each with mode-specific suggestions and a distinct icon.",
-          why: "<b>Why:</b> consistency across modes and a contextual nudge for the next step, while keeping each mode's identity (Build continues a diagram, Freeform is shape-oriented, Code is source-oriented).",
-          image: "screenshots/prompt-pills.png",
+          what: "The returning starter shows intelligent prompt pills in Freeform and Code too (previously Build only), each with mode-specific suggestions and a distinct icon.",
         },
         {
-          date: "2026-06-18",
+          date: "2026-06-16",
           cat: "feature",
-          title: "Zoom-to-frame new AI nodes",
-          what: "When the AI adds nodes, the canvas gently pushes in to frame them (with context, capped zoom) while they animate, then eases back out to fit.",
-          why: "<b>Why:</b> draws the eye to exactly what changed so the user can read the new node without manually panning/zooming.",
-          image: "screenshots/zoom-frame.png",
-        },
-        {
-          date: "2026-06-18",
-          cat: "polish",
-          title: "AI-added highlight outlines the node itself",
-          what: "Changed the “just added by AI” highlight from a box drawn around the node to a pulsing brand-gradient stroke on the node's own shape.",
-          why: "<b>Why:</b> the surrounding box read as a separate element; stroking the shape itself makes it unambiguous which node was created and feels more polished.",
-          image: "screenshots/ai-highlight.png",
+          title: "Live generation skeleton + @-mention seeding",
+          what: "The flat “generating…” box became a live skeleton that assembles the diagram node-by-node; returning cards seed the AI bar with a prompt plus an @-mention pill.",
         },
       ];
 
-      const STORE_KEY = "mc-onboarding-changelog-local-v1";
       const catLabel = (c) =>
         ({ feature: "Feature", polish: "Polish", infra: "Infra", decision: "Decision", note: "Note" }[c] || "Note");
-
-      function loadLocal() {
-        try {
-          return JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
-        } catch {
-          return [];
-        }
-      }
-      function saveLocal(list) {
-        localStorage.setItem(STORE_KEY, JSON.stringify(list));
-      }
-      function esc(s) {
-        return String(s ?? "").replace(/[&<>"]/g, (c) =>
+      const esc = (s) =>
+        String(s ?? "").replace(/[&<>"]/g, (c) =>
           ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]),
         );
-      }
 
-      function entryHTML(e, opts) {
-        const local = opts && opts.local;
-        const shot = e.image
-          ? local
-            ? `<img class="shot" src="${e.image}" alt="" />`
-            : `<img class="shot" src="${esc(e.image)}" alt="" onerror="this.outerHTML='&lt;div class=\\'shot-missing\\'&gt;Screenshot pending — drop ${esc(e.image)} in the repo&lt;/div&gt;'" />`
-          : "";
-        const why = e.why ? `<p class="why">${local ? esc(e.why) : e.why}</p>` : "";
-        const del = local
-          ? `<button class="del" data-id="${esc(e.id)}">Delete</button>`
-          : "";
-        const localTag = local ? `<span class="local-badge">local</span>` : "";
+      function entryHTML(e) {
         return `
           <div class="entry">
             <div class="meta">
@@ -617,103 +545,15 @@
               <span class="date">${esc(e.date)}</span>
             </div>
             <div>
-              <h3>${esc(e.title)}${localTag}</h3>
+              <h3>${esc(e.title)}</h3>
               <p class="what">${esc(e.what)}</p>
-              ${why}
-              ${shot}
-              ${del}
             </div>
           </div>`;
       }
 
-      function render() {
-        const local = loadLocal();
-        const all = [
-          ...local.map((e) => ({ e, local: true })),
-          ...PUBLISHED.map((e) => ({ e, local: false })),
-        ].sort((a, b) => (a.e.date < b.e.date ? 1 : a.e.date > b.e.date ? -1 : 0));
-        document.getElementById("changelog").innerHTML = all
-          .map((x) => entryHTML(x.e, { local: x.local }))
-          .join("");
-        document.querySelectorAll(".del").forEach((btn) =>
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            saveLocal(loadLocal().filter((x) => x.id !== id));
-            render();
-          }),
-        );
-      }
-
-      function fileToDataURL(file) {
-        return new Promise((res, rej) => {
-          const r = new FileReader();
-          r.onload = () => res(r.result);
-          r.onerror = rej;
-          r.readAsDataURL(file);
-        });
-      }
-
-      function showToast(msg) {
-        const t = document.getElementById("toast");
-        t.textContent = msg;
-        t.classList.add("show");
-        setTimeout(() => t.classList.remove("show"), 1800);
-      }
-
-      document.getElementById("entry-form").addEventListener("submit", async (ev) => {
-        ev.preventDefault();
-        const title = document.getElementById("f-title").value.trim();
-        const what = document.getElementById("f-what").value.trim();
-        if (!title || !what) {
-          showToast("Title and “what changed” are required.");
-          return;
-        }
-        const file = document.getElementById("f-shot").files[0];
-        let image = "";
-        if (file) {
-          if (file.size > 1.8 * 1024 * 1024) {
-            showToast("Image too large for local storage (<1.8MB).");
-          } else {
-            image = await fileToDataURL(file);
-          }
-        }
-        const entry = {
-          id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-          date: new Date().toISOString().slice(0, 10),
-          cat: document.getElementById("f-cat").value,
-          title,
-          what,
-          why: document.getElementById("f-why").value.trim(),
-          image,
-        };
-        saveLocal([entry, ...loadLocal()]);
-        ev.target.reset();
-        render();
-        showToast("Added — stored in this browser.");
-      });
-
-      document.getElementById("export-btn").addEventListener("click", async () => {
-        const local = loadLocal();
-        if (!local.length) {
-          showToast("No local entries to export yet.");
-          return;
-        }
-        const md = local
-          .map(
-            (e) =>
-              `### [${catLabel(e.cat)}] ${e.title} (${e.date})\n\n**What:** ${e.what}\n${e.why ? `\n**Why:** ${e.why}\n` : ""}${e.image ? `\n_(screenshot attached locally)_\n` : ""}`,
-          )
-          .join("\n\n---\n\n");
-        try {
-          await navigator.clipboard.writeText(md);
-          showToast("Copied " + local.length + " entr" + (local.length === 1 ? "y" : "ies") + " as Markdown.");
-        } catch {
-          showToast("Copy failed — see console.");
-          console.log(md);
-        }
-      });
-
-      render();
+      document.getElementById("changelog").innerHTML = LATEST.slice(0, 3)
+        .map(entryHTML)
+        .join("");
     </script>
   </body>
 </html>
