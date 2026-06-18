@@ -1,0 +1,1 @@
+export const env={"PUBLIC_USE_MOCK_AI":"true"}

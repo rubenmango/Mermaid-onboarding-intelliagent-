@@ -1,0 +1,1 @@
+import"./CSCGNdxn2.js";import{n as e}from"./D3O7SW4M.js";export{e as createArchitectureServices};

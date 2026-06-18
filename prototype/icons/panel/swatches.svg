@@ -1,0 +1,84 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 312 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Shapes">
+<path id="Union" d="M9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9C0 4.02944 4.02944 0 9 0ZM3.7207 15.3391C5.15138 16.5319 6.99168 17.25 9 17.25C13.5563 17.25 17.25 13.5563 17.25 9C17.25 6.99168 16.5319 5.15138 15.3391 3.7207L3.7207 15.3391ZM9 0.75C4.44365 0.75 0.75 4.44365 0.75 9C0.75 11.2782 1.6733 13.3408 3.16626 14.8337L14.8337 3.16626C13.3408 1.6733 11.2782 0.75 9 0.75Z" fill="var(--fill-0, #5CA3B4)"/>
+<g id="Color">
+<circle cx="135" cy="9" r="9" fill="var(--fill-0, #424242)"/>
+<circle cx="135" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_2">
+<circle cx="177" cy="9" r="9" fill="var(--fill-0, #616161)"/>
+<circle cx="177" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_3">
+<circle cx="219" cy="9" r="9" fill="var(--fill-0, #757575)"/>
+<circle cx="219" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_4">
+<circle cx="261" cy="9" r="9" fill="var(--fill-0, #E90000)"/>
+<circle cx="261" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_5">
+<circle cx="303" cy="9" r="9" fill="var(--fill-0, #FF6000)"/>
+<circle cx="303" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_6">
+<circle cx="51" cy="9" r="9" fill="var(--fill-0, white)"/>
+<circle cx="51" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_7">
+<circle cx="9" cy="51" r="9" fill="var(--fill-0, #FFD400)"/>
+<circle cx="9" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_8">
+<circle cx="51" cy="51" r="9" fill="var(--fill-0, #00CC40)"/>
+<circle cx="51" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_9">
+<circle cx="93" cy="51" r="9" fill="var(--fill-0, #0064FF)"/>
+<circle cx="93" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_10">
+<circle cx="135" cy="51" r="9" fill="var(--fill-0, #BA00FF)"/>
+<circle cx="135" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_11">
+<circle cx="177" cy="51" r="9" fill="var(--fill-0, #FFCBD2)"/>
+<circle cx="177" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_12">
+<circle cx="219" cy="51" r="9" fill="var(--fill-0, #FFDFAD)"/>
+<circle cx="219" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_13">
+<circle cx="261" cy="51" r="9" fill="var(--fill-0, #FFF9BE)"/>
+<circle cx="261" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_14">
+<circle cx="303" cy="51" r="9" fill="var(--fill-0, #C0E7C6)"/>
+<circle cx="303" cy="51" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_15">
+<circle cx="9" cy="93" r="9" fill="var(--fill-0, #B2DFFE)"/>
+<circle cx="9" cy="93" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Color_16">
+<circle cx="51" cy="93" r="9" fill="var(--fill-0, #E9BDEA)"/>
+<circle cx="51" cy="93" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+<g id="Add">
+<circle id="Color_17" cx="93" cy="93" r="8.5" fill="var(--fill-0, white)" stroke="var(--stroke-0, #BDBCCC)"/>
+<g id="add">
+<mask id="mask0_0_110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="84" y="84" width="18" height="18">
+<rect id="Bounding box" x="84" y="84" width="18" height="18" fill="var(--fill-0, #D9D9D9)"/>
+</mask>
+<g mask="url(#mask0_0_110)">
+<path id="add_2" d="M92.325 93.675H88.5V92.325H92.325V88.5H93.675V92.325H97.5V93.675H93.675V97.5H92.325V93.675Z" fill="var(--fill-0, #1E1A2E)"/>
+</g>
+</g>
+</g>
+<g id="Color_18">
+<circle cx="93" cy="9" r="9" fill="var(--fill-0, black)"/>
+<circle cx="93" cy="9" r="8.5" stroke="var(--stroke-0, black)" stroke-opacity="0.12"/>
+</g>
+</g>
+</svg>
