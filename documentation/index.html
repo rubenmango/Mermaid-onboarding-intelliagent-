@@ -484,9 +484,13 @@ flowchart LR
 
       <!-- ===== 02 WHY ===== -->
       <section id="why">
-        <div class="sec-num">02</div>
-        <h2>Why we started</h2>
-        <p class="sec-tag">The hypothesis, and where it came from.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">02</div>
+          <h2>Why we started</h2>
+          <p class="sec-tag">The hypothesis, and where it came from. <em>(the origin — expand for the framing)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>The seed was applying the <strong>Claude interaction pattern</strong> to product onboarding — understand intent, ask smart contextual questions, deliver exactly what's needed, remember for next time. Not copying a UI; applying the <em>intelligence pattern</em>.</p>
 
@@ -505,6 +509,8 @@ flowchart LR
         </div>
 
         <p>This is positioned as <strong>innovation, not iteration</strong>: most teams are still optimising the old paradigm — making tutorials more interactive, feature discovery more gamified. The bet here is that the entire <em>category</em> of user education went obsolete when expectations shifted to tool intelligence.</p>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 03 REALITY CHECK ===== -->
@@ -554,9 +560,13 @@ flowchart LR
 
       <!-- ===== 04 ACTIVATION ===== -->
       <section id="activation">
-        <div class="sec-num">04</div>
-        <h2>The activation data</h2>
-        <p class="sec-tag">2026‑05‑05/06 — Dominic's ranked drop. This is what the flow nudges toward, and in what order.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">04</div>
+          <h2>The activation data</h2>
+          <p class="sec-tag">2026‑05‑05/06 — Dominic's ranked drop. This is what the flow nudges toward, and in what order. <em>(expand for the ranked activation tree)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>Reverse trial is the upcoming monetisation experiment this surface feeds into. Dominic DeWalt's activation analysis is the canonical ranking of which actions matter — it drives the checklist's ordering and the session‑1 vs session‑3 placement of each ask.</p>
 
@@ -629,13 +639,19 @@ flowchart TD
           <li><strong>Teammate invite is a returning‑user ask, not a first‑run checklist step.</strong> The 18× lift validates the lever, but it's correlation‑heavy — so it lives in a persistent "Join Organization" banner aimed at returning users rather than the Get‑Started checklist (see <a href="#conflict">§10</a>).</li>
           <li><strong>More‑diagrams and personalization are deliberately out of scope</strong> — editor team owns the former; the latter is parked until its foundation is ready.</li>
         </ul>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 05 SYSTEM ===== -->
       <section id="system">
-        <div class="sec-num">05</div>
-        <h2>The system &amp; thesis</h2>
-        <p class="sec-tag">"Context during creation" — three layers of intelligence.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">05</div>
+          <h2>The system &amp; thesis</h2>
+          <p class="sec-tag">"Context during creation" — three layers of intelligence. <em>(the model + architecture — expand for the build contract)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>Instead of <em>"What do you want to make?" → "Tell us about yourself" → "Here are some features,"</em> the flow is: <strong>"Let's make something together" → real‑time intelligence → contextual enhancement → progressive learning.</strong> The same arc Claude runs: analyse intent → ask smart questions → deliver exactly what's needed → remember for next time.</p>
 
@@ -671,6 +687,8 @@ flowchart TD
           <span class="label">Architecture decision — 2026‑06‑05</span>
           <p><strong>Layer onto the Unified Editor; don't rebuild.</strong> The editor already ships <code>OnboardingChecklist.svelte</code> and <code>DiagramStarter.svelte</code>. Onboarding hooks into signals the app already emits (<code>nodes</code>, <code>selectedIds</code>, <code>chat.appliedAt</code>, <code>chat.voiceMode</code>, <code>activeTab</code>) via an observational <code>onboarding.svelte.ts</code> store — <strong>no parallel diagram model.</strong> The onboarding stopped being a thing to build from scratch and became a thing to activate and extend.</p>
         </div>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 06 FEATURE AREAS ===== -->
@@ -837,9 +855,13 @@ flowchart LR
 
       <!-- ===== 07 PIPELINE ===== -->
       <section id="pipeline">
-        <div class="sec-num">07</div>
-        <h2>Feature adoption pipeline</h2>
-        <p class="sec-tag">Why onboarding is the foundation for everything advanced.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">07</div>
+          <h2>Feature adoption pipeline</h2>
+          <p class="sec-tag">Why onboarding is the foundation for everything advanced. <em>(the bridge thesis — expand for the stages)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>Traditional onboarding leaves a <strong>gap</strong>: users finish the tour, make a simple diagram, and never discover the advanced surfaces. Intelligent onboarding is meant to be a <strong>bridge</strong> — each stage sets the expectation that makes the next feel natural rather than foreign.</p>
 
@@ -868,6 +890,8 @@ flowchart LR
           <li><strong>Code</strong> — source‑import entries; first tile reflects the latest GitHub branch pulled.</li>
         </ul>
         <p>When there's no single dominant behaviour, the suggestion cards <strong>blend across modes</strong>. This is the mechanism that makes "progressive learning" concrete rather than aspirational.</p>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 07 EVOLUTION ===== -->
@@ -987,13 +1011,9 @@ flowchart LR
 
       <!-- ===== 09 CONFLICT ===== -->
       <section id="conflict">
-        <details class="sec-collapse">
-        <summary>
-          <div class="sec-num">10</div>
-          <h2>Checklist decision — resolved</h2>
-          <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated. <em>(the resolved debate — expand for the full reasoning)</em></p>
-        </summary>
-        <div class="sec-body">
+        <div class="sec-num">10</div>
+        <h2>Checklist decision — resolved</h2>
+        <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated.</p>
 
         <p>For a stretch, the spec, the decision log, and the built prototype disagreed on checklist item #4 — <strong>Invite a teammate</strong> (the retention lever) versus <strong>Share your diagram</strong> (as built). That's now closed. The <strong>Get‑Started checklist MVP is four steps</strong>, and the teammate‑invite ask wasn't dropped — it moved to a better home.</p>
 
@@ -1059,8 +1079,6 @@ flowchart LR
           <span class="label">Provenance</span>
           <p>Decided at the <strong>June 4 Growth Sync</strong> and <strong>finalized at the June 16 Growth Sync</strong> → handed to <strong>Connor</strong> for the dev backlog.</p>
         </div>
-        </div>
-        </details>
       </section>
 
       <!-- ===== 10 SHIPPED ===== -->
