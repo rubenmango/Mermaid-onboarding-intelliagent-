@@ -273,6 +273,36 @@
   .more-row b{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;
     color:var(--muted);display:block;margin-bottom:2px;font-weight:600;}
 
+  /* ---------- leadership TL;DR ---------- */
+  .tldr{border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:14px;
+    background:var(--paper-2);padding:24px 26px;margin:8px 0 4px;}
+  .tldr .tldr-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--coral);font-weight:600;margin-bottom:12px;}
+  .tldr .tldr-bet{font-size:18px;line-height:1.5;margin:0 0 18px;font-weight:500;}
+  .tldr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+  .tldr-cell .tk{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:5px;}
+  .tldr-cell .tv{font-size:14px;line-height:1.45;color:var(--ink-soft);}
+  .tldr-cell .tv b{color:var(--ink);}
+  .tldr-cell.decide{grid-column:1 / -1;border-top:1px dashed var(--line);padding-top:14px;margin-top:2px;}
+  .tldr-cell.decide .tk{color:var(--coral);}
+
+  /* ---------- collapsible sections ---------- */
+  details.sec-collapse>summary{list-style:none;cursor:pointer;display:block;position:relative;padding-right:104px;}
+  details.sec-collapse>summary::-webkit-details-marker{display:none;}
+  details.sec-collapse>summary::after{content:"Expand";position:absolute;right:0;top:0;
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);
+    background:var(--teal-wash);border-radius:999px;padding:5px 12px;font-weight:600;}
+  details.sec-collapse[open]>summary::after{content:"Collapse";}
+  details.sec-collapse>summary:hover h2{text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
+  details.sec-collapse>summary:focus-visible{outline:2px solid var(--teal);outline-offset:5px;border-radius:8px;}
+  details.sec-collapse>summary .sec-tag{margin-bottom:0;}
+  .sec-body{padding-top:18px;}
+  @media print{
+    details.sec-collapse>summary::after{display:none;}
+    details.sec-collapse>.sec-body{display:block !important;}
+  }
+
   /* ---------- footer ---------- */
   footer{padding:56px 0 90px;}
   .srcgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;font-size:13.5px;margin-top:10px;}
@@ -298,6 +328,9 @@
     .glance-row:last-child .glance-cell:last-child{border-bottom:none;}
     .compare,.compare.three{grid-template-columns:1fr;}
     .feat-grid{grid-template-columns:1fr;}
+    .tldr-grid{grid-template-columns:1fr;gap:14px;}
+    details.sec-collapse>summary{padding-right:0;}
+    details.sec-collapse>summary::after{position:static;display:inline-block;margin-top:10px;}
     .srcgrid{grid-template-columns:1fr;}
   }
   @media (max-width:520px){
@@ -384,6 +417,30 @@
         </div>
       </header>
 
+      <!-- ===== LEADERSHIP TL;DR ===== -->
+      <div class="tldr">
+        <div class="tldr-k">For leadership · the 15‑second version</div>
+        <p class="tldr-bet">The bet: gather context <strong>during</strong> creation, not via a survey after it — so the first diagram already feels personal and the second session proves the tool was paying attention.</p>
+        <div class="tldr-grid">
+          <div class="tldr-cell">
+            <div class="tk">What's live</div>
+            <div class="tv">Personalize card, returning‑user prompt pills across all three editor modes, dashboard ⇄ editor round‑trip. <b>Shipped June 18.</b></div>
+          </div>
+          <div class="tldr-cell">
+            <div class="tk">Headline signal</div>
+            <div class="tv">Cold‑start action rate <b>84%</b> (was ~66%). Success measured on <b>trial→paid</b>, not session completion.</div>
+          </div>
+          <div class="tldr-cell">
+            <div class="tk">Status</div>
+            <div class="tv">Active — prototyping in code, layered onto the Unified Editor. 4‑step checklist in the dev backlog.</div>
+          </div>
+          <div class="tldr-cell decide">
+            <div class="tk">The call worth your attention</div>
+            <div class="tv">Checklist ends on <b>Share</b>, not Invite — the heavier teammate‑invite ask moved to a persistent join‑org banner to keep the activation signal clean. Resolved at the June Growth Syncs (<a href="#conflict">§10</a>).</div>
+          </div>
+        </div>
+      </div>
+
       <!-- ===== 01 PROBLEM ===== -->
       <section id="problem">
         <div class="sec-num">01</div>
@@ -452,9 +509,13 @@ flowchart LR
 
       <!-- ===== 03 REALITY CHECK ===== -->
       <section id="reality">
-        <div class="sec-num">03</div>
-        <h2>Baseline reality check</h2>
-        <p class="sec-tag">2026‑05‑04 — re‑anchoring the brief against data that actually exists.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">03</div>
+          <h2>Baseline reality check</h2>
+          <p class="sec-tag">2026‑05‑04 — re‑anchoring the brief against data that actually exists. <em>(methodology — expand for the data audit)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>The original brief carried three baseline numbers (60% completion, 8–12 min to first success, 15% feature discovery). On inspection, <strong>two of the three don't trace to any current Mixpanel or Statsig source.</strong> Treating them as known was overconfident. Here's what the data actually says, anchored to events that exist.</p>
 
@@ -487,6 +548,8 @@ flowchart LR
           <li>Give <strong>"feature discovery" a behavioural definition</strong> (used 2+ AI surfaces in session 1?) rather than passive tour‑step events (52% dismiss those).</li>
           <li>Add a <strong>second‑visit retention</strong> query (D1/D7 return, onboarded vs not) — the whole "progressive learning" thesis leans on it.</li>
         </ul>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 04 ACTIVATION ===== -->
@@ -809,9 +872,13 @@ flowchart LR
 
       <!-- ===== 07 EVOLUTION ===== -->
       <section id="evolution">
-        <div class="sec-num">08</div>
-        <h2>Evolution &amp; review rounds</h2>
-        <p class="sec-tag">How the thinking moved — and where the design overruled the writing.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">08</div>
+          <h2>Evolution &amp; review rounds</h2>
+          <p class="sec-tag">How the thinking moved — and where the design overruled the writing. <em>(the paper trail — expand for the round‑by‑round history)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <div class="timeline">
           <div class="tl-item">
@@ -880,13 +947,19 @@ flowchart LR
           <span class="label">Ruben's POV — on the build moving past the spec</span>
           <p>"The build moving past the spec is fine by me — that's the whole point of prototyping in code. The things I actually wanted working are here: the returning experience reads your last session and turns it into one‑click next steps, and the dashboard round‑trip with auto‑save is where '<strong>the app remembers you</strong>' stops being a slogan. And the checklist is settled now — <strong>four steps, Share at #4</strong>, with Node and Voice AI deferred and the invite lever moved to a 'Join Organization' banner, where the heavier returning‑user ask belongs."</p>
         </div>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 08 DECISIONS ===== -->
       <section id="decisions">
-        <div class="sec-num">09</div>
-        <h2>Key decisions</h2>
-        <p class="sec-tag">What we chose, what we rejected, and why.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">09</div>
+          <h2>Key decisions</h2>
+          <p class="sec-tag">What we chose, what we rejected, and why. <em>(the rationale log — expand for the full set)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <div class="callout decision">
           <span class="label">Decision · real‑time analysis over post‑creation surveys</span>
@@ -908,13 +981,19 @@ flowchart LR
           <span class="label">Decision · localStorage as the persistence layer</span>
           <p>Correct here because the prototype is a real local repo — unlike the earlier standalone‑artifact constraint. Sign‑out is a <strong>full reset</strong> (wipes onboarding progress, cross‑session memory, and every saved diagram) so the next user is a true first‑timer.</p>
         </div>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 09 CONFLICT ===== -->
       <section id="conflict">
-        <div class="sec-num">10</div>
-        <h2>Checklist decision — resolved</h2>
-        <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated.</p>
+        <details class="sec-collapse">
+        <summary>
+          <div class="sec-num">10</div>
+          <h2>Checklist decision — resolved</h2>
+          <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated. <em>(the resolved debate — expand for the full reasoning)</em></p>
+        </summary>
+        <div class="sec-body">
 
         <p>For a stretch, the spec, the decision log, and the built prototype disagreed on checklist item #4 — <strong>Invite a teammate</strong> (the retention lever) versus <strong>Share your diagram</strong> (as built). That's now closed. The <strong>Get‑Started checklist MVP is four steps</strong>, and the teammate‑invite ask wasn't dropped — it moved to a better home.</p>
 
@@ -980,6 +1059,8 @@ flowchart LR
           <span class="label">Provenance</span>
           <p>Decided at the <strong>June 4 Growth Sync</strong> and <strong>finalized at the June 16 Growth Sync</strong> → handed to <strong>Connor</strong> for the dev backlog.</p>
         </div>
+        </div>
+        </details>
       </section>
 
       <!-- ===== 10 SHIPPED ===== -->
