@@ -232,6 +232,18 @@
   .compare ol{margin:0;padding-left:18px;font-size:14px;}
   .compare li{margin-bottom:7px;}
   .compare .gone{color:var(--faint);text-decoration:line-through;text-decoration-color:var(--line-strong);}
+  .compare.three{grid-template-columns:1fr 1fr 1fr;}
+  .compare .col.c{border-color:#BFB8EC;background:#FAF9FE;}
+  .compare .col.c h5{color:#5A4BC4;}
+
+  /* ---------- provenance tags (decision attribution) ---------- */
+  .provset{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px;}
+  .prov{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;padding:2px 7px;border-radius:999px;white-space:nowrap;}
+  .prov.ruben{background:rgba(224,33,138,.10);color:#C01577;}
+  .prov.data{background:rgba(109,91,208,.12);color:#5A4BC4;}
+  .prov.design{background:#EEF0F4;color:#5A6072;}
+  .prov.build{background:#EEF0F4;color:#5A6072;}
 
   /* ---------- footer ---------- */
   footer{padding:56px 0 90px;}
@@ -256,7 +268,7 @@
     .glance-row{flex-direction:column;}
     .glance-cell{border-right:none;border-bottom:1px solid var(--line);}
     .glance-row:last-child .glance-cell:last-child{border-bottom:none;}
-    .compare{grid-template-columns:1fr;}
+    .compare,.compare.three{grid-template-columns:1fr;}
     .srcgrid{grid-template-columns:1fr;}
   }
   @media (max-width:520px){
@@ -274,7 +286,7 @@
     <a class="rail-back" href="../">← Back to hub</a>
     <div class="rail-brand">Mermaid Chart · Growth</div>
     <div class="rail-title">Progressive Intelligent Onboarding</div>
-    <div class="rail-sub">Project documentation — problem, data, decisions &amp; evolution. Living doc, last updated 2026‑06‑18.</div>
+    <div class="rail-sub">Project documentation — problem, data, decisions &amp; evolution. Living doc, last updated 2026‑06‑19.</div>
     <div class="rail-status"><span class="dot"></span> Active · Prototyping</div>
     <nav class="toc" id="toc">
       <a href="#problem"><span class="num">01</span><span>The problem</span></a>
@@ -285,7 +297,7 @@
       <a href="#pipeline"><span class="num">06</span><span>Feature adoption pipeline</span></a>
       <a href="#evolution"><span class="num">07</span><span>Evolution &amp; review rounds</span></a>
       <a href="#decisions"><span class="num">08</span><span>Key decisions</span></a>
-      <a href="#conflict"><span class="num">09</span><span>Open conflict: Invite vs Share</span></a>
+      <a href="#conflict"><span class="num">09</span><span>Checklist decision (resolved)</span></a>
       <a href="#shipped"><span class="num">10</span><span>What shipped &amp; what's left</span></a>
       <a href="#sources"><span class="num">—</span><span>Sources</span></a>
     </nav>
@@ -313,7 +325,7 @@
           <a href="#pipeline"><span class="num">06</span> Feature adoption pipeline</a>
           <a href="#evolution"><span class="num">07</span> Evolution &amp; review rounds</a>
           <a href="#decisions"><span class="num">08</span> Key decisions</a>
-          <a href="#conflict"><span class="num">09</span> Open conflict</a>
+          <a href="#conflict"><span class="num">09</span> Checklist decision</a>
           <a href="#shipped"><span class="num">10</span> What shipped</a>
           <a href="#sources"><span class="num">—</span> Sources</a>
         </nav>
@@ -338,11 +350,6 @@
             <div class="glance-cell"><div class="glance-k">Teammate‑invite lever</div><div class="glance-v"><span class="big">18×</span> &nbsp;<span style="color:var(--muted);font-size:13px;">8.89% vs 0.49% paid conv.</span></div></div>
             <div class="glance-cell"><div class="glance-k">Real success metric</div><div class="glance-v"><span class="arrow">trial / paid</span><br><span style="color:var(--muted);font-size:13px;">not session completion</span></div></div>
           </div>
-        </div>
-
-        <div class="callout conflict" style="margin-top:24px;">
-          <span class="label">⚑ One decision still open</span>
-          <p>The spec, the decision log, and the built prototype currently <strong>disagree on checklist item #4</strong>: <strong>Invite a teammate</strong> (the retention lever) vs <strong>Share your diagram</strong> (as built). Reconciliation pending — see <a href="#conflict">§09</a>.</p>
         </div>
       </header>
 
@@ -380,7 +387,7 @@ flowchart LR
   class A1,A2,A3,A4 old
   class B1,B2,B3,B4 new
   classDef old fill:#EEF0F4,stroke:#C3C8D4,color:#8A90A0;
-  classDef new fill:#E5F1F0,stroke:#0E7C7B,color:#0A5F5E;
+  classDef new fill:#EDEBFB,stroke:#6D5BD0,color:#3F2F9C;
             </pre>
           </div>
           <figcaption><b>Fig. 1</b> — The pattern we're replacing. The old flow treats context as homework <em>after</em> value; the new flow gathers it <em>during</em> creation, where it's immediately applicable.</figcaption>
@@ -463,23 +470,43 @@ flowchart LR
           <div class="diagram">
             <pre class="mermaid">
 flowchart TD
-  ROOT["ACTIVATION<br/>free → paid"]
-  ROOT --> AI["#1 · AI usage in first session<br/>most causal lever"]
-  ROOT --> INV["#2 · One teammate invited (wk 1)<br/>biggest absolute lift"]
-  ROOT --> DIA["More diagrams<br/>editor team owns — not a priority"]
-  ROOT --> PER["Personalization<br/>parked — foundation not ready"]
-  ROOT --> INT["Integration setup<br/>no data — funnel broken"]
-  AI --> V["Voice AI · 2.83%<br/>only 8 paid — not sig"]
+  RT["Reverse Trial<br/>upcoming monetisation experiment"]
+  RT --> OB["Onboarding<br/>activates for paid features well"]
+  OB --> AI["#1 priority · AI usage, first session<br/>most causal lever"]
+  OB --> INV["#2 priority · One teammate invited, wk 1<br/>biggest absolute lift"]
+  OB --> MVP["MVP delivery · locked May 5 sync"]
+  OB --> DIA["More diagrams, first session<br/>good progress · not a priority"]
+  OB --> PER["Personalization → brand / theme<br/>not a priority"]
+  OB --> INT["Integration setup<br/>no data — funnel broken"]
+
+  %% AI usage — per-method PAID conversion
   AI --> N["Node-level AI · 1.88%<br/>best at real volume"]
   AI --> IL["In-line AI · 1.74%"]
-  AI --> C["AI Chat · 1.02%<br/>most usage"]
-  class AI,INV prio
+  AI --> CH["AI Chat · 1.02%<br/>most usage"]
+  AI --> RP["AI repair · 0.51%"]
+  AI --> CS2["Cold-start AI · 0.45%"]
+  AI --> VO["Voice AI · 2.83%<br/>needs usage · not stat-sig"]
+  N -.->|"chain converts higher<br/>than reverse · not stat-sig"| CH
+
+  %% Invite — splits + monetisation siblings
+  INV --> ADM["Basic / Paid admins<br/>8.89% paid · ~18× · retain ~80% vs 73%"]
+  ADM --> BU["Bulk upload at org creation<br/>owner: Akshatha"]
+  ADM --> BP["Bundle pricing · e.g. 3 seats / $20<br/>owner: Andrew · backlog"]
+  ADM --> FS["1 free seat w/ Plus or Premium<br/>owner: Dom · backlog"]
+
+  %% MVP delivery branch
+  MVP --> GS["Get-Started checklist<br/>in-editor · gamified · inspired by Conor"]
+  MVP --> LQ["Loading-screen questions<br/>parallel workstream"]
+
+  class AI focal
+  class INV,MVP,ADM,GS,LQ strong
   class DIA,PER,INT dim
-  classDef prio fill:#FBEAE2,stroke:#E1542B,color:#9c2f12,font-weight:600;
+  classDef focal fill:#FCE3F1,stroke:#E0218A,color:#9C1268,font-weight:600;
+  classDef strong fill:#EDEBFB,stroke:#6D5BD0,color:#3F2F9C,font-weight:600;
   classDef dim fill:#EEF0F4,stroke:#C3C8D4,color:#8A90A0;
             </pre>
           </div>
-          <figcaption><b>Fig. 2</b> — Ranked activation tree. AI usage stays <b>#1</b> because the signal is causal; teammate‑invite is <b>#2</b> despite the bigger headline number because it's correlation‑heavy (inviters are usually already activated).</figcaption>
+          <figcaption><b>Fig. 2</b> — The reverse‑trial activation tree (origin: 21 Apr brainstorm), the map of which actions to nudge — needed <em>before</em> the reverse‑trial experiment. AI usage is <b>#1</b> because the signal is causal; teammate‑invite is <b>#2</b> despite the bigger headline number because it's correlation‑heavy (inviters are usually already activated), which is why it feeds the monetisation siblings and a returning‑user banner rather than the first‑run checklist.</figcaption>
         </figure>
 
         <h4>AI usage — per‑method paid conversion</h4>
@@ -505,7 +532,7 @@ flowchart TD
         <ul>
           <li><strong>The checklist's AI item defaults to the highest causal converter</strong> — Node‑level AI today. Voice is included but flagged "needs more usage to validate."</li>
           <li><strong>Sequencing matters:</strong> chaining <em>node vibe diagramming → AI chat</em> converts better than the reverse. Surface node AI first, chat as the natural follow‑up — don't randomise the order.</li>
-          <li><strong>Teammate invite is a session‑3 nudge, not a session‑1 ask.</strong> The 18× lift validates <em>placement</em>, but the correlation caveat means front‑loading it would just measure already‑activated users self‑selecting.</li>
+          <li><strong>Teammate invite is a returning‑user ask, not a first‑run checklist step.</strong> The 18× lift validates the lever, but it's correlation‑heavy — so it lives in a persistent "Join Organization" banner aimed at returning users rather than the Get‑Started checklist (see <a href="#conflict">§09</a>).</li>
           <li><strong>More‑diagrams and personalization are deliberately out of scope</strong> — editor team owns the former; the latter is parked until its foundation is ready.</li>
         </ul>
       </section>
@@ -532,7 +559,7 @@ flowchart TD
   RE --> RU["'Pick up where you left off'<br/>mode-aware · behaviour-driven · mixable"]
   RU --> DB
   class PZ,RU accent
-  classDef accent fill:#E5F1F0,stroke:#0E7C7B,color:#0A5F5E,font-weight:600;
+  classDef accent fill:#EDEBFB,stroke:#6D5BD0,color:#3F2F9C,font-weight:600;
             </pre>
           </div>
           <figcaption><b>Fig. 3</b> — The loop. The dashboard round‑trip is where "the app remembers you" stops being a slogan: a <b>session profile</b> (AI generations, shapes added, code use, voice, node edits) is written on exit and reshapes re‑entry.</figcaption>
@@ -568,8 +595,10 @@ flowchart LR
   S2 --> S3["3 · Interactive<br/>intelligence<br/><i>troubleshooting</i>"]
   S3 --> S4["4 · Workflow<br/>intelligence<br/><i>guided creation</i>"]
   S4 --> S5["5 · Execution<br/>intelligence<br/><i>agentflows</i>"]
-  classDef s fill:#FFFFFF,stroke:#0E7C7B,color:#14161C;
-  class S1,S2,S3,S4,S5 s;
+  classDef s fill:#FFFFFF,stroke:#6D5BD0,color:#14161C;
+  classDef foundation fill:#FCE3F1,stroke:#E0218A,color:#9C1268,font-weight:600;
+  class S2,S3,S4,S5 s;
+  class S1 foundation;
             </pre>
           </div>
           <figcaption><b>Fig. 4</b> — The adoption pipeline. Users who experience intelligent onboarding come to expect intelligent <em>everything</em> — that expectation is the conversion path into diffs, troubleshooting, and agentflows.</figcaption>
@@ -594,8 +623,8 @@ flowchart LR
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-date">2026‑04‑21 · Phase 1</div>
-            <div class="tl-head">Foundation research &amp; strategic framing</div>
-            <div class="tl-body"><p>Analysed failure patterns in traditional onboarding; mapped the post‑AI mental‑model shift; identified "context during creation" as the core opportunity. Key insight: <em>users who experience contextual intelligence expect it everywhere.</em></p></div>
+            <div class="tl-head">Origin brainstorm &amp; strategic framing</div>
+            <div class="tl-body"><p>Analysed failure patterns in traditional onboarding; mapped the post‑AI mental‑model shift; identified "context during creation" as the core opportunity. This is also where the <strong>reverse‑trial activation tree</strong> (see <a href="#activation">§04</a>) was first sketched — the map of which actions to nudge, needed before the reverse‑trial experiment. Key insight: <em>users who experience contextual intelligence expect it everywhere.</em></p></div>
           </div>
           <div class="tl-item">
             <div class="tl-date">2026‑04‑22 · Phase 2</div>
@@ -617,26 +646,30 @@ flowchart LR
             <div class="tl-head">Activation priorities locked</div>
             <div class="tl-body"><p>Dominic's ranked tree fixed the levers: AI usage #1, teammate invite #2. Thread added a sequencing rule (vibe → chat chaining) and surfaced parallel workstreams (bulk‑upload at org creation, bundle pricing). See <a href="#activation">§04</a>.</p></div>
           </div>
-          <div class="tl-item">
-            <div class="tl-date">2026‑06‑04 · Build</div>
-            <div class="tl-head">Reset‑as‑new‑user + checklist launcher polish</div>
-            <div class="tl-body"><p>Sign‑out wired to a genuine first‑run reset (clears cross‑session memory, falls back to the cold‑start state). Checklist launcher stays visible and toggles the card; icon moved checklist → flag; the done‑state became a quiet muted check. Touches the checklist's <em>chrome</em>, not its item composition.</p></div>
+          <div class="tl-item flag">
+            <div class="tl-date">2026‑06‑04 · Growth Sync · Decision</div>
+            <div class="tl-head">Checklist MVP decided — 4 steps, Share at #4</div>
+            <div class="tl-body"><p>The Get‑Started checklist MVP was locked to <strong>four steps</strong> — Create → Edit with AI → Create a theme → <strong>Share</strong> — with Node‑level and Voice AI deferred and the invite lever moved to a "Join Organization" banner. See <a href="#conflict">§09</a>. Alongside, the build landed sign‑out as a genuine first‑run reset (clears cross‑session memory) and checklist‑launcher polish (icon → flag, quiet muted done‑state).</p></div>
           </div>
           <div class="tl-item">
             <div class="tl-date">2026‑06‑05 · Spec</div>
             <div class="tl-head">Spec reconciled against the actual designs</div>
             <div class="tl-body">
               <p>Walked 10 first‑run + 3 returning frames. <strong>Where the written description diverged from the drawn design, the design won:</strong></p>
-              <p>· Checklist corrected to: Create first diagram → Edit with Node‑level AI → Try Voice AI → Share → Create a theme ("Try AI Chat" dropped).<br>
-              · <strong>Invite a teammate reinstated at #4</strong>, replacing "Share" (Ruben's call — Share &amp; Invite overlapped; Invite carries the retention lever).<br>
+              <p>· Checklist reconciled against the frames; <strong>item #4 (Invite vs Share) left open</strong> at this point — later resolved to <strong>Share</strong>, with Node‑level and Voice AI deferred (see <a href="#conflict">§09</a>).<br>
               · Smart questions confirmed as the "Let's personalize this" card during loading.<br>
               · Returning‑user memory designed: session profile → adaptive re‑entry.</p>
             </div>
           </div>
+          <div class="tl-item">
+            <div class="tl-date">2026‑06‑05 · Build state</div>
+            <div class="tl-head">Build moved past spec — live prototype</div>
+            <div class="tl-body"><p>Live at <code>unified-editor-ten.vercel.app</code>. Personalize card, wired shapes panel (incl. real AWS icons), AI "+" context menu, per‑tab returning state, and the dashboard ⇄ editor round‑trip with auto‑save all landed. The built checklist shipped <strong>Share</strong> and deferred Voice — the direction later ratified as the MVP. See <a href="#conflict">§09</a>.</p></div>
+          </div>
           <div class="tl-item flag">
-            <div class="tl-date">2026‑06‑05 · Build update</div>
-            <div class="tl-head">Build moved past spec — and reversed a decision</div>
-            <div class="tl-body"><p>Live at <code>unified-editor-ten.vercel.app</code>. Personalize card, wired shapes panel (incl. real AWS icons), AI "+" context menu, per‑tab returning state, and the dashboard ⇄ editor round‑trip with auto‑save all landed. But the built checklist shipped <strong>Share</strong>, not Invite, and <strong>dropped Voice</strong> — reversing the same‑day spec decision. Flagged as a question, not a conclusion. See <a href="#conflict">§09</a>.</p></div>
+            <div class="tl-date">2026‑06‑16 · Growth Sync · Decision</div>
+            <div class="tl-head">Checklist finalized → dev backlog</div>
+            <div class="tl-body"><p>The 4‑step checklist decision was <strong>finalized</strong> and handed to <strong>Connor</strong> for the dev backlog. The Invite‑vs‑Share question is closed — Share ships in the MVP; the invite lever lives in the "Join Organization" banner. See <a href="#conflict">§09</a>.</p></div>
           </div>
           <div class="tl-item">
             <div class="tl-date">2026‑06‑16 · Build</div>
@@ -652,7 +685,7 @@ flowchart LR
 
         <div class="pov">
           <span class="label">Ruben's POV — on the build moving past the spec</span>
-          <p>"The build moving past the spec is fine by me — that's the whole point of prototyping in code. The things I actually wanted working are here: the returning experience reads your last session and turns it into one‑click next steps, and the dashboard round‑trip with auto‑save is where '<strong>the app remembers you</strong>' stops being a slogan. The one thing I need to settle is the checklist — I haven't decided to reverse myself, so treat the built version as a question."</p>
+          <p>"The build moving past the spec is fine by me — that's the whole point of prototyping in code. The things I actually wanted working are here: the returning experience reads your last session and turns it into one‑click next steps, and the dashboard round‑trip with auto‑save is where '<strong>the app remembers you</strong>' stops being a slogan. And the checklist is settled now — <strong>four steps, Share at #4</strong>, with Node and Voice AI deferred and the invite lever moved to a 'Join Organization' banner, where the heavier returning‑user ask belongs."</p>
         </div>
       </section>
 
@@ -687,14 +720,19 @@ flowchart LR
       <!-- ===== 09 CONFLICT ===== -->
       <section id="conflict">
         <div class="sec-num">09</div>
-        <h2>Open conflict: Invite vs Share</h2>
-        <p class="sec-tag">The one item where spec, log, and build disagree. Decision needed.</p>
+        <h2>Checklist decision — resolved</h2>
+        <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated.</p>
 
-        <p>Three sources currently describe checklist item #4 differently. The Cursor prompt and the earlier 06‑05 log entry both specify <strong>Invite a teammate</strong>; the built prototype shipped <strong>Share your diagram</strong> and also dropped <strong>Try Voice AI</strong>.</p>
+        <p>For a stretch, the spec, the decision log, and the built prototype disagreed on checklist item #4 — <strong>Invite a teammate</strong> (the retention lever) versus <strong>Share your diagram</strong> (as built). That's now closed. The <strong>Get‑Started checklist MVP is four steps</strong>, and the teammate‑invite ask wasn't dropped — it moved to a better home.</p>
 
-        <div class="compare">
+        <div class="callout decision">
+          <span class="label">✓ Decided June 4 · finalized June 16</span>
+          <p>The MVP checklist ships four steps: <strong>Create your first diagram → Edit with AI → Create a theme → Share your diagram.</strong> Node‑level AI and Voice AI are deliberately deferred — a generic <strong>"Edit with AI"</strong> stands in — to keep a clean engagement signal. The teammate‑invite lever relocates to a persistent <strong>"Join Organization" banner</strong> on the dashboard and project pages.</p>
+        </div>
+
+        <div class="compare three">
           <div class="col a">
-            <h5>Spec &amp; decision log</h5>
+            <h5>Spec &amp; log (was)</h5>
             <ol>
               <li>Create your first diagram</li>
               <li>Edit with Node‑level AI</li>
@@ -713,20 +751,41 @@ flowchart LR
               <li><strong>Share your diagram</strong></li>
             </ol>
           </div>
+          <div class="col c">
+            <h5>Resolved MVP</h5>
+            <ol>
+              <li>Create your first diagram</li>
+              <li>Edit with AI <em>(generic chat)</em></li>
+              <li>Create a theme</li>
+              <li><strong>Share your diagram</strong></li>
+            </ol>
+            <p style="font-size:12.5px;color:var(--muted);margin:10px 0 0;">Invite → <strong>"Join Organization" banner</strong> (dashboard / project pages).</p>
+          </div>
+        </div>
+
+        <h4>Why it landed here</h4>
+
+        <div class="callout decision">
+          <div class="provset"><span class="prov ruben">Ruben's call</span></div>
+          <span class="label">Share over Invite at step 4</span>
+          <p>Ruben's own call: for the MVP, <strong>Share is the better conversion driver</strong>. Share and Invite overlapped on collaboration, so the checklist keeps the lighter, higher‑intent action and lets the heavier ask live elsewhere.</p>
+        </div>
+
+        <div class="callout decision">
+          <div class="provset"><span class="prov design">Design frames</span><span class="prov build">Build / Eng</span></div>
+          <span class="label">Node‑level &amp; Voice AI deferred — one generic "Edit with AI"</span>
+          <p>Rather than split the AI step across methods, the MVP uses a single generic <strong>"Edit with AI"</strong> (chat). Deferring Node‑level and Voice keeps a <strong>clean engagement signal</strong> — one AI action to measure, not four — without throwing away the richer methods (they stay in the editor, just not as checklist gates).</p>
         </div>
 
         <div class="callout data">
-          <span class="label">The case for Invite</span>
-          <p>Invite carries the retention lever: inviters convert at <strong>8.89% vs 0.49%</strong> (18×) and retain at ~80% vs ~73%. Share and Invite overlap on collaboration, so keeping both is redundant — Invite is the one that moves the metric this project is judged on.</p>
-        </div>
-        <div class="callout warn">
-          <span class="label">The counter‑weight</span>
-          <p>The invite lift is <strong>correlation‑heavy</strong> — inviters are usually already activated. That's exactly why invite is a <strong>session‑3 nudge, not a session‑1 ask</strong>. An item sitting mid‑list at #4, currently ungated, may read better gated (lock until item 1 / first session) — and gating reads better on a <em>trailing</em> item. Also unresolved: was dropping Voice from the checklist intentional, given the voice handlers were left intact?</p>
+          <div class="provset"><span class="prov data">Data — Dominic</span><span class="prov ruben">Ruben's call</span></div>
+          <span class="label">Invite lever → "Join Organization" banner</span>
+          <p>The invite ask <strong>wasn't dropped</strong> — it relocated to a persistent <strong>"Join Organization" banner</strong> on the dashboard and project pages. That's the right home for a <strong>heavier, retention‑driving, correlation‑heavy ask aimed at returning users</strong>: inviters convert ~8.89% vs 0.49% (18×) and retain ~80% vs 73%, but they're usually already activated — so the lever belongs in front of returning users, not as a first‑run checklist step.</p>
         </div>
 
-        <div class="callout conflict">
-          <span class="label">⚑ Decision required</span>
-          <p><strong>(1)</strong> Invite (retention lever, per spec) or Share (as built)? &nbsp;<strong>(2)</strong> If Invite — gate it or leave it ungated, and at #4 or as a trailing item? &nbsp;<strong>(3)</strong> Is dropping Voice AI from the checklist intended?</p>
+        <div class="callout decision">
+          <span class="label">Provenance</span>
+          <p>Decided at the <strong>June 4 Growth Sync</strong> and <strong>finalized at the June 16 Growth Sync</strong> → handed to <strong>Connor</strong> for the dev backlog.</p>
         </div>
       </section>
 
@@ -777,7 +836,7 @@ flowchart LR
         <div class="meta-foot">
           Progressive Intelligent Onboarding · Mermaid Chart Growth &amp; Strategy<br>
           Product Designer &amp; Innovation Lead — Ruben Mangorrinha<br>
-          Living document · generated from project log + build changelog, last updated 2026‑06‑18<br>
+          Living document · generated from project log + build changelog, last updated 2026‑06‑19<br>
           Influences: Hayley Jenkins (post‑AI design process), Pawel Klasa (portfolio as evidence).
         </div>
       </footer>
@@ -797,9 +856,9 @@ flowchart LR
       fontSize:'13px',
       primaryColor:'#FFFFFF',
       primaryTextColor:'#14161C',
-      primaryBorderColor:'#0E7C7B',
-      lineColor:'#8A90A0',
-      secondaryColor:'#E5F1F0',
+      primaryBorderColor:'#6D5BD0',
+      lineColor:'#8E83D6',
+      secondaryColor:'#EDEBFB',
       tertiaryColor:'#F6F7F9',
       clusterBkg:'#FBFCFD',
       clusterBorder:'#D2D6E0',
