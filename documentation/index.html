@@ -754,24 +754,7 @@ flowchart LR
             <h3>Contextual questions</h3>
             <p class="feat-one">Up to 3 single‑select questions on the loading screen that tailor the first diagram — never after, never nagging.</p>
             <span class="feat-trigger">Trigger · loading, session 1</span>
-            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="Loading screen with a diagram forming behind a single-select Let's personalize this card">
-              <rect x="0" y="0" width="320" height="132" rx="10" fill="#1C1A26"/>
-              <g opacity="0.32" stroke="#6D5BD0" stroke-width="1.5" fill="none">
-                <rect x="24" y="20" width="46" height="22" rx="4"/>
-                <rect x="120" y="20" width="46" height="22" rx="4"/>
-                <rect x="72" y="64" width="46" height="22" rx="4"/>
-                <line x1="70" y1="31" x2="120" y2="31"/>
-                <line x1="95" y1="42" x2="95" y2="64"/>
-              </g>
-              <rect x="150" y="30" width="150" height="86" rx="10" fill="#FBFBFD" stroke="#6D5BD0" stroke-width="1.5"/>
-              <text x="164" y="50" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#16151D">Let's personalize this</text>
-              <rect x="164" y="60" width="122" height="16" rx="8" fill="#FCE3F1" stroke="#E0218A" stroke-width="1.2"/>
-              <text x="172" y="71" font-family="Inter,sans-serif" font-size="8.5" fill="#9C1268">Just exploring</text>
-              <rect x="164" y="82" width="122" height="16" rx="8" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
-              <text x="172" y="93" font-family="Inter,sans-serif" font-size="8.5" fill="#16151D">For a real project</text>
-              <rect x="164" y="104" width="122" height="6" rx="3" fill="#EDEBFB"/>
-              <rect x="164" y="104" width="40" height="6" rx="3" fill="#6D5BD0"/>
-            </svg>
+            <img class="mock" src="img/contextual-questions.png" loading="lazy" alt="The live 'Let's personalize this' card on the loading screen — three single-select questions (add a decision branch, include an error-handling path, group steps into sub-graphs), each answered Skip/Yes.">
             <details class="more">
               <summary>More</summary>
               <div class="more-row"><b>Why</b>Context gathered during creation is immediately applicable and isn't homework; a post‑creation survey gets dismissed. Single‑select keeps friction near zero at the moment of momentum.</div>
@@ -789,22 +772,7 @@ flowchart LR
             <h3>Get-Started checklist</h3>
             <p class="feat-one">A 4‑step, in‑editor guided start: create → edit with AI → theme → share.</p>
             <span class="feat-trigger">Trigger · first session, in-editor</span>
-            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="In-editor checklist with a red-bubble count, a crossed-out done row and one-of-four progress">
-              <rect x="0" y="0" width="320" height="132" rx="10" fill="#FBFBFD"/>
-              <rect x="16" y="14" width="180" height="104" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1.2"/>
-              <text x="28" y="34" font-family="Inter,sans-serif" font-size="10.5" font-weight="600" fill="#16151D">Get started</text>
-              <circle cx="180" cy="28" r="9" fill="#E0218A"/>
-              <text x="180" y="31.5" font-family="JetBrains Mono,monospace" font-size="9" fill="#fff" text-anchor="middle">3</text>
-              <line x1="28" y1="48" x2="120" y2="48" stroke="#9AA0AE" stroke-width="1"/>
-              <text x="28" y="51" font-family="Inter,sans-serif" font-size="9" fill="#9AA0AE" text-decoration="line-through">Create a diagram</text>
-              <text x="28" y="68" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Edit with AI</text>
-              <text x="28" y="84" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Theme it</text>
-              <text x="28" y="100" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Share</text>
-              <rect x="212" y="14" width="92" height="104" rx="9" fill="#1C1A26" opacity="0.06"/>
-              <text x="240" y="60" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#6D5BD0">1/4</text>
-              <rect x="240" y="70" width="40" height="6" rx="3" fill="#EDEBFB"/>
-              <rect x="240" y="70" width="10" height="6" rx="3" fill="#6D5BD0"/>
-            </svg>
+            <img class="mock" src="img/get-started.png" loading="lazy" alt="The live 'Get started with Mermaid' checklist — Create your first diagram and Create a theme struck through as done, Edit with AI and Share your diagram remaining, '2 of 4 complete' progress bar.">
             <details class="more">
               <summary>More</summary>
               <div class="more-row"><b>Why</b>First‑session activation is the prerequisite for the reverse‑trial experiment; a simple gamified sequence tests engagement and yields a clean signal.</div>
@@ -822,22 +790,7 @@ flowchart LR
             <h3>Progressive onboarding</h3>
             <p class="feat-one">On return visits, the app picks up where you left off — suggestions built from what you actually did last time.</p>
             <span class="feat-trigger">Trigger · 2nd / 3rd+ visit</span>
-            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="Returning editor with Build, Freeform and Code mode pills and two collapsible cold-start suggestions">
-              <rect x="0" y="0" width="320" height="132" rx="10" fill="#FBFBFD"/>
-              <text x="16" y="26" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#16151D">Pick up where you left off</text>
-              <rect x="16" y="36" width="56" height="18" rx="9" fill="#FCE3F1" stroke="#E0218A" stroke-width="1.2"/>
-              <text x="44" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C1268" text-anchor="middle">Build</text>
-              <rect x="80" y="36" width="70" height="18" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
-              <text x="115" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4" text-anchor="middle">Freeform</text>
-              <rect x="158" y="36" width="56" height="18" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
-              <text x="186" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4" text-anchor="middle">Code</text>
-              <rect x="16" y="66" width="288" height="22" rx="6" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
-              <text x="28" y="80" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Continue your CI/CD flow diagram</text>
-              <text x="292" y="80" font-family="JetBrains Mono,monospace" font-size="11" fill="#9AA0AE" text-anchor="end">+</text>
-              <rect x="16" y="92" width="288" height="22" rx="6" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
-              <text x="28" y="106" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Add error‑handling branches</text>
-              <text x="292" y="106" font-family="JetBrains Mono,monospace" font-size="11" fill="#9AA0AE" text-anchor="end">+</text>
-            </svg>
+            <img class="mock" src="img/progressive-pills.png" loading="lazy" alt="Returning empty-canvas state — Add shape, Paste code, Use template and Create agent starters above two diagram-derived suggestion pills: 'Expand Rectangle with more detail' and 'Create a similar diagram for a different domain'.">
             <details class="more">
               <summary>More</summary>
               <div class="more-row"><b>Why</b>This is where "the app remembers you" becomes real and where retention lives — the second‑session payoff is proving the tool was paying attention.</div>
