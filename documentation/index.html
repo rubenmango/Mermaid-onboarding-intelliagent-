@@ -10,22 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --paper:#F6F7F9;
+    --paper:#FBFBFD;
     --paper-2:#FFFFFF;
-    --ink:#14161C;
+    --ink:#16151D;
     --ink-soft:#2C2F3A;
     --muted:#5A6072;
     --faint:#8A90A0;
     --line:#E4E6ED;
     --line-strong:#D2D6E0;
-    --teal:#0E7C7B;
-    --teal-deep:#0A5F5E;
-    --teal-wash:#E5F1F0;
-    --coral:#E1542B;
-    --coral-wash:#FBEAE2;
+    /* --teal* tokens now carry deep-purple (structure, links, strokes) */
+    --teal:#6D5BD0;
+    --teal-deep:#5A4BC4;
+    --teal-wash:#EDEBFB;
+    /* --coral* tokens now carry mermaid-pink (the focal element) */
+    --coral:#E0218A;
+    --coral-wash:#FCE3F1;
     --amber:#B7791F;
     --amber-wash:#FBF1DE;
-    --spine:#15171F;
+    --spine:#1C1A26;
     --spine-soft:#21242F;
     --spine-line:#30343F;
     --maxw:760px;
@@ -88,8 +90,8 @@
     padding:5px 10px;border:1px solid var(--spine-line);border-radius:999px;
   }
   .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);
-    box-shadow:0 0 0 0 rgba(225,84,43,.5);animation:pulse 2.4s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,84,43,.45);}70%{box-shadow:0 0 0 6px rgba(225,84,43,0);}100%{box-shadow:0 0 0 0 rgba(225,84,43,0);}}
+    box-shadow:0 0 0 0 rgba(224,33,138,.5);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,33,138,.45);}70%{box-shadow:0 0 0 6px rgba(224,33,138,0);}100%{box-shadow:0 0 0 0 rgba(224,33,138,0);}}
   @media (prefers-reduced-motion:reduce){.dot{animation:none;}}
 
   nav.toc{font-size:13.5px;}
@@ -170,11 +172,11 @@
   .callout .label{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
     text-transform:uppercase;font-weight:600;display:block;margin-bottom:9px;}
   .callout p:last-child{margin-bottom:0;}
-  .callout.decision{background:var(--teal-wash);border-color:#BFE0DD;}
+  .callout.decision{background:var(--teal-wash);border-color:#D9D3F5;}
   .callout.decision .label{color:var(--teal-deep);}
   .callout.data{background:#EEF1F6;border-color:#D9DEEA;}
   .callout.data .label{color:#3E4660;}
-  .callout.conflict{background:var(--coral-wash);border-color:#F2CBBA;}
+  .callout.conflict{background:var(--coral-wash);border-color:#F5C2DE;}
   .callout.conflict .label{color:var(--coral);}
   .callout.warn{background:var(--amber-wash);border-color:#EAD6A8;}
   .callout.warn .label{color:var(--amber);}
@@ -245,6 +247,32 @@
   .prov.design{background:#EEF0F4;color:#5A6072;}
   .prov.build{background:#EEF0F4;color:#5A6072;}
 
+  /* ---------- feature areas (§06) ---------- */
+  .feat-intro{font-size:17px;line-height:1.55;color:var(--ink-soft);margin:0 0 8px;}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0 0;}
+  .feat-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;
+    background:var(--paper-2);padding:20px;box-shadow:0 1px 2px rgba(22,21,29,.03);}
+  .feat-card .fkicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--teal);font-weight:600;margin-bottom:6px;}
+  .feat-card h3{margin:0 0 8px;font-size:18px;}
+  .feat-one{font-size:14.5px;line-height:1.5;color:var(--ink-soft);margin:0 0 14px;font-weight:500;}
+  .feat-trigger{align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.05em;
+    text-transform:uppercase;font-weight:600;color:var(--teal-deep);background:var(--teal-wash);
+    border-radius:999px;padding:3px 9px;margin-bottom:6px;}
+  .mock{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;
+    background:var(--paper-2);margin-bottom:14px;}
+  details.more{border-top:1px solid var(--line);margin-top:auto;}
+  details.more>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--teal-deep);padding:12px 0 2px;display:flex;align-items:center;gap:8px;}
+  details.more>summary::-webkit-details-marker{display:none;}
+  details.more>summary::after{content:"+";margin-left:auto;font-size:15px;line-height:1;color:var(--faint);}
+  details.more[open]>summary::after{content:"\2013";}
+  details.more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px;}
+  .more-row{padding:9px 0;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.5;color:var(--ink-soft);}
+  .more-row:first-child{border-top:none;}
+  .more-row b{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-bottom:2px;font-weight:600;}
+
   /* ---------- footer ---------- */
   footer{padding:56px 0 90px;}
   .srcgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;font-size:13.5px;margin-top:10px;}
@@ -269,6 +297,7 @@
     .glance-cell{border-right:none;border-bottom:1px solid var(--line);}
     .glance-row:last-child .glance-cell:last-child{border-bottom:none;}
     .compare,.compare.three{grid-template-columns:1fr;}
+    .feat-grid{grid-template-columns:1fr;}
     .srcgrid{grid-template-columns:1fr;}
   }
   @media (max-width:520px){
@@ -294,11 +323,12 @@
       <a href="#reality"><span class="num">03</span><span>Baseline reality check</span></a>
       <a href="#activation"><span class="num">04</span><span>The activation data</span></a>
       <a href="#system"><span class="num">05</span><span>The system &amp; thesis</span></a>
-      <a href="#pipeline"><span class="num">06</span><span>Feature adoption pipeline</span></a>
-      <a href="#evolution"><span class="num">07</span><span>Evolution &amp; review rounds</span></a>
-      <a href="#decisions"><span class="num">08</span><span>Key decisions</span></a>
-      <a href="#conflict"><span class="num">09</span><span>Checklist decision (resolved)</span></a>
-      <a href="#shipped"><span class="num">10</span><span>What shipped &amp; what's left</span></a>
+      <a href="#features"><span class="num">06</span><span>Feature areas</span></a>
+      <a href="#pipeline"><span class="num">07</span><span>Feature adoption pipeline</span></a>
+      <a href="#evolution"><span class="num">08</span><span>Evolution &amp; review rounds</span></a>
+      <a href="#decisions"><span class="num">09</span><span>Key decisions</span></a>
+      <a href="#conflict"><span class="num">10</span><span>Checklist decision (resolved)</span></a>
+      <a href="#shipped"><span class="num">11</span><span>What shipped &amp; what's left</span></a>
       <a href="#sources"><span class="num">—</span><span>Sources</span></a>
     </nav>
     <div class="rail-foot">
@@ -322,11 +352,12 @@
           <a href="#reality"><span class="num">03</span> Baseline reality check</a>
           <a href="#activation"><span class="num">04</span> The activation data</a>
           <a href="#system"><span class="num">05</span> The system &amp; thesis</a>
-          <a href="#pipeline"><span class="num">06</span> Feature adoption pipeline</a>
-          <a href="#evolution"><span class="num">07</span> Evolution &amp; review rounds</a>
-          <a href="#decisions"><span class="num">08</span> Key decisions</a>
-          <a href="#conflict"><span class="num">09</span> Checklist decision</a>
-          <a href="#shipped"><span class="num">10</span> What shipped</a>
+          <a href="#features"><span class="num">06</span> Feature areas</a>
+          <a href="#pipeline"><span class="num">07</span> Feature adoption pipeline</a>
+          <a href="#evolution"><span class="num">08</span> Evolution &amp; review rounds</a>
+          <a href="#decisions"><span class="num">09</span> Key decisions</a>
+          <a href="#conflict"><span class="num">10</span> Checklist decision</a>
+          <a href="#shipped"><span class="num">11</span> What shipped</a>
           <a href="#sources"><span class="num">—</span> Sources</a>
         </nav>
       </details>
@@ -498,8 +529,8 @@ flowchart TD
   MVP --> GS["Get-Started checklist<br/>in-editor · gamified · inspired by Conor"]
   MVP --> LQ["Loading-screen questions<br/>parallel workstream"]
 
-  class AI focal
-  class INV,MVP,ADM,GS,LQ strong
+  class AI,INV focal
+  class MVP,ADM,GS,LQ strong
   class DIA,PER,INT dim
   classDef focal fill:#FCE3F1,stroke:#E0218A,color:#9C1268,font-weight:600;
   classDef strong fill:#EDEBFB,stroke:#6D5BD0,color:#3F2F9C,font-weight:600;
@@ -532,7 +563,7 @@ flowchart TD
         <ul>
           <li><strong>The checklist's AI item defaults to the highest causal converter</strong> — Node‑level AI today. Voice is included but flagged "needs more usage to validate."</li>
           <li><strong>Sequencing matters:</strong> chaining <em>node vibe diagramming → AI chat</em> converts better than the reverse. Surface node AI first, chat as the natural follow‑up — don't randomise the order.</li>
-          <li><strong>Teammate invite is a returning‑user ask, not a first‑run checklist step.</strong> The 18× lift validates the lever, but it's correlation‑heavy — so it lives in a persistent "Join Organization" banner aimed at returning users rather than the Get‑Started checklist (see <a href="#conflict">§09</a>).</li>
+          <li><strong>Teammate invite is a returning‑user ask, not a first‑run checklist step.</strong> The 18× lift validates the lever, but it's correlation‑heavy — so it lives in a persistent "Join Organization" banner aimed at returning users rather than the Get‑Started checklist (see <a href="#conflict">§10</a>).</li>
           <li><strong>More‑diagrams and personalization are deliberately out of scope</strong> — editor team owns the former; the latter is parked until its foundation is ready.</li>
         </ul>
       </section>
@@ -579,9 +610,171 @@ flowchart TD
         </div>
       </section>
 
-      <!-- ===== 06 PIPELINE ===== -->
-      <section id="pipeline">
+      <!-- ===== 06 FEATURE AREAS ===== -->
+      <section id="features">
         <div class="sec-num">06</div>
+        <h2>Feature areas</h2>
+        <p class="sec-tag">Four jobs, four moments — read as one flow, built as four.</p>
+
+        <p class="feat-intro">People read this as one onboarding flow, but it's <strong>four jobs firing at different moments</strong> — recognition runs first because everything downstream personalizes off it.</p>
+
+        <figure>
+          <div class="diagram">
+            <pre class="mermaid">
+flowchart LR
+  P["First prompt<br/><i>user types intent</i>"] --> R["Prompt recognition<br/><i>trigger: on first prompt</i>"]
+  R --> Q["Contextual questions<br/><i>trigger: during loading, S1</i>"]
+  Q --> C["Get-Started checklist<br/><i>trigger: first session, in-editor</i>"]
+  C --> PO["Progressive onboarding<br/><i>trigger: 2nd / 3rd+ visit</i>"]
+  classDef step fill:#FFFFFF,stroke:#6D5BD0,color:#16151D;
+  classDef foc fill:#FCE3F1,stroke:#E0218A,color:#9C1268,font-weight:600;
+  class P,Q,C,PO step;
+  class R foc;
+            </pre>
+          </div>
+          <figcaption><b>Fig. 4</b> — The lifecycle strip. Each area fires at a distinct moment and hands its output to the next; <b>prompt recognition</b> is the root the rest personalizes off.</figcaption>
+        </figure>
+
+        <div class="feat-grid">
+
+          <!-- Card 1 -->
+          <article class="feat-card">
+            <div class="fkicker">Area 01</div>
+            <h3>Prompt-recognition analysis</h3>
+            <p class="feat-one">Reads the user's first prompt and infers who they are — technical vs non‑technical, content type, tools, intent.</p>
+            <span class="feat-trigger">Trigger · first prompt</span>
+            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="Prompt bar with an analyzing parse overlay tagging detected signals">
+              <rect x="0" y="0" width="320" height="132" rx="10" fill="#FBFBFD"/>
+              <rect x="16" y="18" width="288" height="34" rx="8" fill="#fff" stroke="#6D5BD0" stroke-width="1.5"/>
+              <text x="28" y="39" font-family="Inter,sans-serif" font-size="11" fill="#16151D">Build a CI/CD pipeline for our GitHub repo…</text>
+              <text x="28" y="74" font-family="JetBrains Mono,monospace" font-size="9" fill="#6D5BD0">analyzing…</text>
+              <rect x="28" y="84" width="74" height="18" rx="9" fill="#EDEBFB" stroke="#6D5BD0" stroke-width="1"/>
+              <text x="38" y="96" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4">technical</text>
+              <rect x="110" y="84" width="58" height="18" rx="9" fill="#EDEBFB" stroke="#6D5BD0" stroke-width="1"/>
+              <text x="120" y="96" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4">GitHub</text>
+              <rect x="176" y="84" width="54" height="18" rx="9" fill="#EDEBFB" stroke="#6D5BD0" stroke-width="1"/>
+              <text x="186" y="96" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4">flow</text>
+              <rect x="28" y="108" width="62" height="18" rx="9" fill="#FCE3F1" stroke="#E0218A" stroke-width="1.2"/>
+              <text x="38" y="120" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C1268">intent ✓</text>
+            </svg>
+            <details class="more">
+              <summary>More</summary>
+              <div class="more-row"><b>Why</b>Post‑AI, a generic experience reads as broken; to feel intelligent we must know who's typing before responding. Also the in‑product, no‑extra‑questions way to get the technical/non‑technical signal for onboarding + lifecycle email.</div>
+              <div class="more-row"><b>What it does (standalone)</b>Real‑time parse → content type, tools mentioned, expertise signals, intent, and a technical/non‑technical grouping.</div>
+              <div class="more-row"><b>Standalone vs full journey</b>Standalone it's invisible plumbing, no UI of its own. In the journey it's the root — everything downstream personalizes off its output.</div>
+              <div class="more-row"><b>Value &amp; hypothesis</b>Segmenting on the first prompt lets every later surface feel tailored, lifting first‑session activation vs a generic flow. Best‑effort inference; degrade to a neutral default when signal is weak.</div>
+              <div class="more-row"><b>What's next to it</b>Hands off to the contextual questions and writes into the session profile.</div>
+            </details>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feat-card">
+            <div class="fkicker">Area 02</div>
+            <h3>Contextual questions</h3>
+            <p class="feat-one">Up to 3 single‑select questions on the loading screen that tailor the first diagram — never after, never nagging.</p>
+            <span class="feat-trigger">Trigger · loading, session 1</span>
+            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="Loading screen with a diagram forming behind a single-select Let's personalize this card">
+              <rect x="0" y="0" width="320" height="132" rx="10" fill="#1C1A26"/>
+              <g opacity="0.32" stroke="#6D5BD0" stroke-width="1.5" fill="none">
+                <rect x="24" y="20" width="46" height="22" rx="4"/>
+                <rect x="120" y="20" width="46" height="22" rx="4"/>
+                <rect x="72" y="64" width="46" height="22" rx="4"/>
+                <line x1="70" y1="31" x2="120" y2="31"/>
+                <line x1="95" y1="42" x2="95" y2="64"/>
+              </g>
+              <rect x="150" y="30" width="150" height="86" rx="10" fill="#FBFBFD" stroke="#6D5BD0" stroke-width="1.5"/>
+              <text x="164" y="50" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#16151D">Let's personalize this</text>
+              <rect x="164" y="60" width="122" height="16" rx="8" fill="#FCE3F1" stroke="#E0218A" stroke-width="1.2"/>
+              <text x="172" y="71" font-family="Inter,sans-serif" font-size="8.5" fill="#9C1268">Just exploring</text>
+              <rect x="164" y="82" width="122" height="16" rx="8" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
+              <text x="172" y="93" font-family="Inter,sans-serif" font-size="8.5" fill="#16151D">For a real project</text>
+              <rect x="164" y="104" width="122" height="6" rx="3" fill="#EDEBFB"/>
+              <rect x="164" y="104" width="40" height="6" rx="3" fill="#6D5BD0"/>
+            </svg>
+            <details class="more">
+              <summary>More</summary>
+              <div class="more-row"><b>Why</b>Context gathered during creation is immediately applicable and isn't homework; a post‑creation survey gets dismissed. Single‑select keeps friction near zero at the moment of momentum.</div>
+              <div class="more-row"><b>What it does (standalone)</b>Max 3 questions, single‑select, loading‑screen only, first‑session only; each answer re‑enters loading for the next.</div>
+              <div class="more-row"><b>Standalone vs full journey</b>Standalone it's a light personalization prompt. In the journey it refines recognition's inference and shapes the generated output + which checklist steps to emphasize.</div>
+              <div class="more-row"><b>Value &amp; hypothesis</b>Tool/expertise‑specific questions during loading raise output acceptance (the real AHA) without adding perceived effort. Currently the "loading questions" workstream pitched to the AI team.</div>
+              <div class="more-row"><b>What's next to it</b>Feeds the enhanced first diagram and the Get‑Started checklist.</div>
+            </details>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feat-card">
+            <div class="fkicker">Area 03</div>
+            <h3>Get-Started checklist</h3>
+            <p class="feat-one">A 4‑step, in‑editor guided start: create → edit with AI → theme → share.</p>
+            <span class="feat-trigger">Trigger · first session, in-editor</span>
+            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="In-editor checklist with a red-bubble count, a crossed-out done row and one-of-four progress">
+              <rect x="0" y="0" width="320" height="132" rx="10" fill="#FBFBFD"/>
+              <rect x="16" y="14" width="180" height="104" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1.2"/>
+              <text x="28" y="34" font-family="Inter,sans-serif" font-size="10.5" font-weight="600" fill="#16151D">Get started</text>
+              <circle cx="180" cy="28" r="9" fill="#E0218A"/>
+              <text x="180" y="31.5" font-family="JetBrains Mono,monospace" font-size="9" fill="#fff" text-anchor="middle">3</text>
+              <line x1="28" y1="48" x2="120" y2="48" stroke="#9AA0AE" stroke-width="1"/>
+              <text x="28" y="51" font-family="Inter,sans-serif" font-size="9" fill="#9AA0AE" text-decoration="line-through">Create a diagram</text>
+              <text x="28" y="68" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Edit with AI</text>
+              <text x="28" y="84" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Theme it</text>
+              <text x="28" y="100" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Share</text>
+              <rect x="212" y="14" width="92" height="104" rx="9" fill="#1C1A26" opacity="0.06"/>
+              <text x="240" y="60" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#6D5BD0">1/4</text>
+              <rect x="240" y="70" width="40" height="6" rx="3" fill="#EDEBFB"/>
+              <rect x="240" y="70" width="10" height="6" rx="3" fill="#6D5BD0"/>
+            </svg>
+            <details class="more">
+              <summary>More</summary>
+              <div class="more-row"><b>Why</b>First‑session activation is the prerequisite for the reverse‑trial experiment; a simple gamified sequence tests engagement and yields a clean signal.</div>
+              <div class="more-row"><b>What it does (standalone)</b>Four guided tasks, gamified, red‑bubble notification, done‑state (no checkboxes — they were a false affordance), second‑stage modal cut.</div>
+              <div class="more-row"><b>Standalone vs full journey</b>Standalone it's a task list. In the journey its steps are tuned by recognition/questions, and completion seeds the session profile that powers progressive onboarding.</div>
+              <div class="more-row"><b>Value &amp; hypothesis (Ruben's call)</b>Ending on <strong>Share</strong> (not Invite) converts better for the MVP; node‑AI/Voice deferred to keep the signal clean; the heavier invite/retention ask lives on the persistent join‑org banner instead. Decided June 4, finalized → backlog June 16.</div>
+              <div class="more-row"><b>What's next to it</b>The join‑org banner (retention lever) and progressive onboarding.</div>
+            </details>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="feat-card">
+            <div class="fkicker">Area 04</div>
+            <h3>Progressive onboarding</h3>
+            <p class="feat-one">On return visits, the app picks up where you left off — suggestions built from what you actually did last time.</p>
+            <span class="feat-trigger">Trigger · 2nd / 3rd+ visit</span>
+            <svg class="mock" viewBox="0 0 320 132" role="img" aria-label="Returning editor with Build, Freeform and Code mode pills and two collapsible cold-start suggestions">
+              <rect x="0" y="0" width="320" height="132" rx="10" fill="#FBFBFD"/>
+              <text x="16" y="26" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#16151D">Pick up where you left off</text>
+              <rect x="16" y="36" width="56" height="18" rx="9" fill="#FCE3F1" stroke="#E0218A" stroke-width="1.2"/>
+              <text x="44" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C1268" text-anchor="middle">Build</text>
+              <rect x="80" y="36" width="70" height="18" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
+              <text x="115" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4" text-anchor="middle">Freeform</text>
+              <rect x="158" y="36" width="56" height="18" rx="9" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
+              <text x="186" y="48" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#5A4BC4" text-anchor="middle">Code</text>
+              <rect x="16" y="66" width="288" height="22" rx="6" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
+              <text x="28" y="80" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Continue your CI/CD flow diagram</text>
+              <text x="292" y="80" font-family="JetBrains Mono,monospace" font-size="11" fill="#9AA0AE" text-anchor="end">+</text>
+              <rect x="16" y="92" width="288" height="22" rx="6" fill="#fff" stroke="#D9D3F5" stroke-width="1"/>
+              <text x="28" y="106" font-family="Inter,sans-serif" font-size="9" fill="#16151D">Add error‑handling branches</text>
+              <text x="292" y="106" font-family="JetBrains Mono,monospace" font-size="11" fill="#9AA0AE" text-anchor="end">+</text>
+            </svg>
+            <details class="more">
+              <summary>More</summary>
+              <div class="more-row"><b>Why</b>This is where "the app remembers you" becomes real and where retention lives — the second‑session payoff is proving the tool was paying attention.</div>
+              <div class="more-row"><b>What it does (standalone)</b>Session profile (written on exit) → adaptive re‑entry; returning‑user prompt pills across Build/Freeform/Code; persistent, collapsible cold‑start suggestions (two below normal view).</div>
+              <div class="more-row"><b>Standalone vs full journey</b>Standalone it's a smart returning state. In the journey it's the compounding layer — recognition's grouping + checklist behaviour resurface here, sharper each visit.</div>
+              <div class="more-row"><b>Value &amp; hypothesis</b>Behaviour‑driven re‑entry (not a fixed per‑mode template) lifts return‑visit retention vs a static welcome. Shipped pills across all modes June 18.</div>
+              <div class="more-row"><b>What's next to it</b>Loops back to the editor; sustained returns feed the reverse‑trial conversion case.</div>
+            </details>
+          </article>
+
+        </div>
+
+        <div class="callout">
+          <p>The <strong>standalone vs full journey</strong> row is the load‑bearing one: the areas chain (recognition → questions → checklist → progressive onboarding) and the value compounds along that chain.</p>
+        </div>
+      </section>
+
+      <!-- ===== 07 PIPELINE ===== -->
+      <section id="pipeline">
+        <div class="sec-num">07</div>
         <h2>Feature adoption pipeline</h2>
         <p class="sec-tag">Why onboarding is the foundation for everything advanced.</p>
 
@@ -595,13 +788,13 @@ flowchart LR
   S2 --> S3["3 · Interactive<br/>intelligence<br/><i>troubleshooting</i>"]
   S3 --> S4["4 · Workflow<br/>intelligence<br/><i>guided creation</i>"]
   S4 --> S5["5 · Execution<br/>intelligence<br/><i>agentflows</i>"]
-  classDef s fill:#FFFFFF,stroke:#6D5BD0,color:#14161C;
+  classDef s fill:#FFFFFF,stroke:#6D5BD0,color:#16151D;
   classDef foundation fill:#FCE3F1,stroke:#E0218A,color:#9C1268,font-weight:600;
   class S2,S3,S4,S5 s;
   class S1 foundation;
             </pre>
           </div>
-          <figcaption><b>Fig. 4</b> — The adoption pipeline. Users who experience intelligent onboarding come to expect intelligent <em>everything</em> — that expectation is the conversion path into diffs, troubleshooting, and agentflows.</figcaption>
+          <figcaption><b>Fig. 5</b> — The adoption pipeline. Users who experience intelligent onboarding come to expect intelligent <em>everything</em> — that expectation is the conversion path into diffs, troubleshooting, and agentflows.</figcaption>
         </figure>
 
         <h4>Returning‑user memory, made concrete</h4>
@@ -616,7 +809,7 @@ flowchart LR
 
       <!-- ===== 07 EVOLUTION ===== -->
       <section id="evolution">
-        <div class="sec-num">07</div>
+        <div class="sec-num">08</div>
         <h2>Evolution &amp; review rounds</h2>
         <p class="sec-tag">How the thinking moved — and where the design overruled the writing.</p>
 
@@ -649,14 +842,14 @@ flowchart LR
           <div class="tl-item flag">
             <div class="tl-date">2026‑06‑04 · Growth Sync · Decision</div>
             <div class="tl-head">Checklist MVP decided — 4 steps, Share at #4</div>
-            <div class="tl-body"><p>The Get‑Started checklist MVP was locked to <strong>four steps</strong> — Create → Edit with AI → Create a theme → <strong>Share</strong> — with Node‑level and Voice AI deferred and the invite lever moved to a "Join Organization" banner. See <a href="#conflict">§09</a>. Alongside, the build landed sign‑out as a genuine first‑run reset (clears cross‑session memory) and checklist‑launcher polish (icon → flag, quiet muted done‑state).</p></div>
+            <div class="tl-body"><p>The Get‑Started checklist MVP was locked to <strong>four steps</strong> — Create → Edit with AI → Create a theme → <strong>Share</strong> — with Node‑level and Voice AI deferred and the invite lever moved to a "Join Organization" banner. See <a href="#conflict">§10</a>. Alongside, the build landed sign‑out as a genuine first‑run reset (clears cross‑session memory) and checklist‑launcher polish (icon → flag, quiet muted done‑state).</p></div>
           </div>
           <div class="tl-item">
             <div class="tl-date">2026‑06‑05 · Spec</div>
             <div class="tl-head">Spec reconciled against the actual designs</div>
             <div class="tl-body">
               <p>Walked 10 first‑run + 3 returning frames. <strong>Where the written description diverged from the drawn design, the design won:</strong></p>
-              <p>· Checklist reconciled against the frames; <strong>item #4 (Invite vs Share) left open</strong> at this point — later resolved to <strong>Share</strong>, with Node‑level and Voice AI deferred (see <a href="#conflict">§09</a>).<br>
+              <p>· Checklist reconciled against the frames; <strong>item #4 (Invite vs Share) left open</strong> at this point — later resolved to <strong>Share</strong>, with Node‑level and Voice AI deferred (see <a href="#conflict">§10</a>).<br>
               · Smart questions confirmed as the "Let's personalize this" card during loading.<br>
               · Returning‑user memory designed: session profile → adaptive re‑entry.</p>
             </div>
@@ -664,12 +857,12 @@ flowchart LR
           <div class="tl-item">
             <div class="tl-date">2026‑06‑05 · Build state</div>
             <div class="tl-head">Build moved past spec — live prototype</div>
-            <div class="tl-body"><p>Live at <code>unified-editor-ten.vercel.app</code>. Personalize card, wired shapes panel (incl. real AWS icons), AI "+" context menu, per‑tab returning state, and the dashboard ⇄ editor round‑trip with auto‑save all landed. The built checklist shipped <strong>Share</strong> and deferred Voice — the direction later ratified as the MVP. See <a href="#conflict">§09</a>.</p></div>
+            <div class="tl-body"><p>Live at <code>unified-editor-ten.vercel.app</code>. Personalize card, wired shapes panel (incl. real AWS icons), AI "+" context menu, per‑tab returning state, and the dashboard ⇄ editor round‑trip with auto‑save all landed. The built checklist shipped <strong>Share</strong> and deferred Voice — the direction later ratified as the MVP. See <a href="#conflict">§10</a>.</p></div>
           </div>
           <div class="tl-item flag">
             <div class="tl-date">2026‑06‑16 · Growth Sync · Decision</div>
             <div class="tl-head">Checklist finalized → dev backlog</div>
-            <div class="tl-body"><p>The 4‑step checklist decision was <strong>finalized</strong> and handed to <strong>Connor</strong> for the dev backlog. The Invite‑vs‑Share question is closed — Share ships in the MVP; the invite lever lives in the "Join Organization" banner. See <a href="#conflict">§09</a>.</p></div>
+            <div class="tl-body"><p>The 4‑step checklist decision was <strong>finalized</strong> and handed to <strong>Connor</strong> for the dev backlog. The Invite‑vs‑Share question is closed — Share ships in the MVP; the invite lever lives in the "Join Organization" banner. See <a href="#conflict">§10</a>.</p></div>
           </div>
           <div class="tl-item">
             <div class="tl-date">2026‑06‑16 · Build</div>
@@ -691,7 +884,7 @@ flowchart LR
 
       <!-- ===== 08 DECISIONS ===== -->
       <section id="decisions">
-        <div class="sec-num">08</div>
+        <div class="sec-num">09</div>
         <h2>Key decisions</h2>
         <p class="sec-tag">What we chose, what we rejected, and why.</p>
 
@@ -719,7 +912,7 @@ flowchart LR
 
       <!-- ===== 09 CONFLICT ===== -->
       <section id="conflict">
-        <div class="sec-num">09</div>
+        <div class="sec-num">10</div>
         <h2>Checklist decision — resolved</h2>
         <p class="sec-tag">Settled at the June Growth Syncs: a 4‑step MVP, Share at step 4, the invite lever relocated.</p>
 
@@ -791,7 +984,7 @@ flowchart LR
 
       <!-- ===== 10 SHIPPED ===== -->
       <section id="shipped">
-        <div class="sec-num">10</div>
+        <div class="sec-num">11</div>
         <h2>What shipped &amp; what's left</h2>
         <p class="sec-tag">Built state as of 2026‑06‑18 — live on Vercel and a GitHub Pages static SPA.</p>
 
@@ -855,15 +1048,15 @@ flowchart LR
       fontFamily:'Inter, sans-serif',
       fontSize:'13px',
       primaryColor:'#FFFFFF',
-      primaryTextColor:'#14161C',
+      primaryTextColor:'#16151D',
       primaryBorderColor:'#6D5BD0',
       lineColor:'#8E83D6',
       secondaryColor:'#EDEBFB',
-      tertiaryColor:'#F6F7F9',
+      tertiaryColor:'#FBFBFD',
       clusterBkg:'#FBFCFD',
       clusterBorder:'#D2D6E0',
       titleColor:'#5A6072',
-      edgeLabelBackground:'#F6F7F9'
+      edgeLabelBackground:'#FBFBFD'
     }
   });
 </script>
