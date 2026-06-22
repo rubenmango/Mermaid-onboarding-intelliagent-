@@ -35,7 +35,7 @@ jobs:
       - name: Assemble site (main docs + prototype/ from gh-pages)
         run: |
           mkdir _site
-          cp -r index.html documentation wireframes _site/
+          cp -r index.html synthetic-user-test.html documentation wireframes _site/
           git fetch origin gh-pages
           if git rev-parse --verify --quiet origin/gh-pages >/dev/null; then
             git archive origin/gh-pages prototype | tar -x -C _site || \
