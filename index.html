@@ -219,7 +219,7 @@
         font-weight: 600;
       }
 
-      /* ---------- Documentation feature card ---------- */
+      /* ---------- Feature card (documentation + research) ---------- */
       .doc-card {
         display: grid;
         grid-template-columns: 220px 1fr;
@@ -253,6 +253,9 @@
         color: var(--green);
         font-weight: 600;
       }
+      .doc-card.research .doc-thumb .kicker {
+        color: var(--purple);
+      }
       .doc-thumb .strap {
         font-size: 21px;
         line-height: 1.12;
@@ -285,6 +288,9 @@
         border-radius: 50%;
         background: var(--green);
       }
+      .doc-card.research .doc-thumb .pdot {
+        background: var(--purple);
+      }
       .doc-body {
         padding: 24px;
         display: flex;
@@ -294,6 +300,10 @@
       .doc-body .tag {
         background: var(--green-bg);
         color: var(--green);
+      }
+      .doc-card.research .doc-body .tag {
+        background: var(--gray-bg);
+        color: var(--purple);
       }
       .doc-body h3 {
         margin: 0;
@@ -308,6 +318,9 @@
       }
       .doc-body .go {
         color: var(--green);
+      }
+      .doc-card.research .doc-body .go {
+        color: var(--purple);
       }
       @media (max-width: 680px) {
         .doc-card {
@@ -530,11 +543,33 @@
 
         <div class="links" style="margin-top: 18px">
           <a href="./documentation/"><span class="ico">📄</span> Full documentation</a>
-          <a href="./synthetic-user-test.html"><span class="ico">🧪</span> Synthetic user test</a>
           <a href="https://unified-editor-ten.vercel.app/"><span class="ico">▶</span> Full app (Vercel)</a>
           <a href="https://github.com/rubenmango/Mermaid-onboarding-intelliagent-"><span class="ico">⌥</span> GitHub repo</a>
           <a href="https://mermaid.ai/app/projects/4fd27a49-a84c-4c00-99c5-d98790210369/diagrams/3564311c-bf39-4794-8918-57a1eb16488d"><span class="ico">◇</span> Activation tree</a>
         </div>
+      </section>
+
+      <!-- ===================== RESEARCH ===================== -->
+      <section aria-label="Research">
+        <div class="section-head"><h2>Research</h2></div>
+        <a class="doc-card research" href="./synthetic-user-test.html">
+          <div class="doc-thumb" aria-hidden="true">
+            <div class="kicker">Synthetic User Test</div>
+            <div class="strap">3&nbsp;/&nbsp;4 hypotheses<br />hold for the<br />Editor personas.</div>
+            <span class="pill"><span class="pdot"></span> 6 personas · 4 feature areas</span>
+          </div>
+          <div class="doc-body">
+            <span class="tag">Report</span>
+            <h3>Progressive Intelligent Onboarding — Synthetic User Test</h3>
+            <p>
+              Six persona agents walked the real Unified Editor onboarding, each
+              feature area scored against its documented hypothesis on
+              trial→paid. The verdicts, the per-persona read, the one blind spot
+              (find-first), and the ranked recommendations.
+            </p>
+            <span class="go">Read the report →</span>
+          </div>
+        </a>
       </section>
 
       <!-- ===================== LATEST CHANGES ===================== -->
@@ -562,6 +597,12 @@
       // Edit this array to publish entries. The hub only shows these three;
       // the full history lives in ./documentation/#evolution.
       const LATEST = [
+        {
+          date: "2026-06-23",
+          cat: "decision",
+          title: "Design review — rename to “Enhance the layout”, flowchart copy, clearer onboarding steps",
+          what: "Weekly design review of the onboarding updates. Aligned: “Enhance the layout” becomes the standard for structure-only diagram improvement; use “flowchart” for the diagram type and reserve “flow” for the product. Onboarding submenu gets headers + step numbering; the flag icon goes friendlier.",
+        },
         {
           date: "2026-06-19",
           cat: "note",
