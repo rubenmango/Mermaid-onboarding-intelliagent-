@@ -943,6 +943,29 @@ flowchart LR
             <div class="tl-head">The node lights up; memory reaches every mode</div>
             <div class="tl-body"><p>The AI‑added highlight upgraded from a floating box to the <strong>node's own outline pulsing</strong> in the brand gradient, with the canvas easing a gentle push‑in to frame the change then back out (manual zoom stays 1:1; reduced‑motion respected). And the "pick up where you left off" prompt pills — previously Build‑only — now appear in <strong>all three modes</strong>, each with its own flavour and icon (Build = continue/expand, Freeform = connect/auto‑arrange, Code = diagram‑from‑repo). The progressive‑learning thesis now reads across the whole editor, not one tab.</p></div>
           </div>
+          <div class="tl-item flag">
+            <div class="tl-date">2026‑06‑23 · Weekly Design Review</div>
+            <div class="tl-head">Layout standard, flowchart language &amp; the onboarding punch‑list</div>
+            <div class="tl-body">
+              <p>Present: <strong>Martin Pedrick</strong>, <strong>Knut Sveidqvist</strong>, <strong>Kasey Alderete</strong>, <strong>Wilson Siqueira</strong>. Presenter: <strong>Ruben</strong>.</p>
+              <p><strong>Aligned decisions</strong></p>
+              <p>· <strong>"Enhance the layout" is now a design standard.</strong> It names a structure‑only improvement that helps the layout engine — adding anchor nodes, redistributing so every node has &le;3 edges — <em>without changing the diagram's meaning.</em> It replaces the generic "Edit with AI" label for layout clean‑up.<br>
+              · <strong>Flowchart terminology.</strong> Use "flowchart" for the diagram type; reserve "flow" for the product name (Mermaid Flow). Copy like "turn this into a flow" comes out.</p>
+              <p><strong>Feedback &rarr; changes to apply</strong></p>
+              <p>· <strong>Onboarding submenu clarity.</strong> Add headers and step numbering; clearly separate the optional <strong>4‑item Get‑Started checklist</strong> (checkbox items, non‑sequential) from the sequential numbered steps inside "Edit with AI". Fix the "1 of 4" indicator scoping — it currently sits inside Edit‑with‑AI but refers to the overall checklist.<br>
+              · <strong>Friendlier mark.</strong> Replace the flag icon (it reads as "report a problem") with a check or a playful "smiling starfish".<br>
+              · <strong>Returning‑user "pick up where you left off".</strong> Base suggestions on durable style/structure/process preferences (semantic coloring, subgraphs, "I usually upload a doc") rather than topic expansion ("do more tuna"). Keep the three lenses: visual‑enhance / content / structure.<br>
+              · <strong>Sharing flow.</strong> Don't force free‑form email invites. If the user already has teams, suggest share‑to‑folder or pick‑from‑list and keep the direct link; consider presentation "Play" mode &rarr; add team. Treat sharing as a separate experiment. For true first‑time users (no team), keep the create‑team emphasis but frame it as a benefit (collaboration / feedback), not forced.<br>
+              · <strong>Contextual questions.</strong> Open question — show after first render vs during loading (synthetic test leaned "after render"); validate.</p>
+              <p><strong>Next steps — Ruben</strong></p>
+              <p>· Document versioning: how the system reverts and renders previous diagram versions.<br>
+              · Share the synthetic user‑test repo to Corner for methodology feedback.<br>
+              · Improve onboarding UI (headers + step numbering).<br>
+              · Rename the editing feature label &rarr; "Enhance the layout" / "Enhance diagram".<br>
+              · Share the GitHub published page link from the README.</p>
+              <p><em>Methodology note: the team treated synthetic user testing as a defensive / filtering layer to surface blind spots — explicitly <strong>not</strong> a replacement for real user interviews.</em></p>
+            </div>
+          </div>
         </div>
 
         <div class="pov">
